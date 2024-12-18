@@ -1,0 +1,144 @@
+.step-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #fff;
+  color: #111;
+}
+/* 
+.form-group select {
+  padding: 0.5rem;
+} */
+
+#victimName {
+  width: 100%;
+  padding: 12px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.next-button,
+.prev-button,
+.generate-pdf-button,
+.submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.next-button,
+.generate-pdf-button,
+.submit-button {
+  background-color: #F4B63C;
+  color: white;
+}
+
+.prev-button {
+  background-color: #ddd;
+  color: #333;
+}
+
+.next-button:hover,
+.generate-pdf-button:hover,
+.submit-button:hover {
+  background-color: #E5A62C;
+}
+
+.prev-button:hover {
+  background-color: #ccc;
+}
+
+.summary {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.summary p {
+  margin-bottom: 10px;
+}
+
+.summary .description {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+
+.success-message {
+  text-align: center;
+  padding: 20px;
+  background-color: #e6f7e6;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.success-message h2 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.anonymous-message {
+  font-style: italic;
+  color: #666;
+  margin-top: 10px;
+}
+
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+  }
+
+  .next-button,
+  .prev-button,
+  .generate-pdf-button,
+  .submit-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

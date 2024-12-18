@@ -1,0 +1,74 @@
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.custom-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-mark {
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border: 2px solid #333; /* Cor da borda quando não selecionado */
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Estilo quando hover */
+.custom-checkbox:hover input ~ .checkbox-mark {
+  border-color: #F4B63C;
+}
+
+/* Estilo quando selecionado */
+.custom-checkbox input:checked ~ .checkbox-mark {
+  background-color: #F4B63C;
+  border-color: #F4B63C;
+}
+
+/* Checkmark (✓) */
+.checkbox-mark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Mostrar checkmark quando selecionado */
+.custom-checkbox input:checked ~ .checkbox-mark:after {
+  display: block;
+}
+
+/* Label do checkbox */
+.checkbox-label {
+  margin-left: 12px;
+  color: #333;
+}
+
+/* Estado desabilitado */
+.custom-checkbox input:disabled ~ .checkbox-mark {
+  background-color: #e5e7eb;
+  border-color: #e5e7eb;
+  cursor: not-allowed;
+}
+
+.custom-checkbox input:disabled ~ .checkbox-label {
+  color: #9ca3af;
+  cursor: not-allowed;
+}

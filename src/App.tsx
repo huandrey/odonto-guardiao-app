@@ -1,0 +1,28 @@
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import './App.css'
+import * as Pages from './features';
+import { SidebarProvider } from './shared/components/sidebar/use-sidebar-context';
+
+function App() {
+  return (
+    <SidebarProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Pages.InicioPage />} />
+          <Route path="/sobre" element={<Pages.SobrePage />} />
+          <Route path="/home" element={<Pages.HomePage />} />
+          <Route path="/register" element={<Pages.RegistroPage />} />
+          <Route path="/login" element={<Pages.LoginPage />} />
+          <Route path="/forgot-password" element={<Pages.EnviarInstrucoesParaEmailPage />} />
+          <Route path="/forgot-password-confirmation" element={<Pages.ConfirmaEnvioInstrucoesPage />} />
+          <Route path="/reset-password" element={<Pages.ResetaSenhaPage />} />
+          <Route path="/reset-password-success" element={<Pages.ResetaSenhaSucessoPage />} />
+          <Route path="/pontos-apoio" element={<Pages.PontosApoioPage />} />
+          <Route path="/denuncia" element={<Pages.DenunciaPage />} />
+        </Routes>
+      </Router>
+    </SidebarProvider>
+  )
+}
+
+export default App
