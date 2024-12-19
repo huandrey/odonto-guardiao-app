@@ -1,0 +1,16 @@
+.complaint-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: "Inter", 'sans-serif';
+}
+
+.address-step h2 {
+  font-size: 2rem;
+}
+
+@media (max-width: 640px) {
+  .address-step h2 {
+    font-size: 1.5rem;
+  }
+}

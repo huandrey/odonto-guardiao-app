@@ -1,10 +1,12 @@
-/* Container principal */
+* {
+  font-family: "Inter", 'sans-serif';
+}
+
 .progress-bar-container {
   margin-bottom: 3.5rem;
   position: relative;
 }
 
-/* Trilha de progresso */
 .progress-track {
   width: 100%;
   height: 9px;
@@ -14,7 +16,6 @@
   position: relative;
 }
 
-/* Barra de progresso */
 .progress-bar {
   height: 100%;
   width: 14.28%; /* Representa 1/7 do progresso */
@@ -27,7 +28,7 @@
 .step-indicators {
   display: flex;
   justify-content: space-between;
-  margin-top: -32px;
+  margin-top: -26px;
   position: relative;
   padding: 0 10px;
 }
@@ -101,9 +102,12 @@
 
 /* Responsividade */
 @media (max-width: 640px) {
+  .step-indicators {
+    margin-top: -24px;
+  }
   .step-indicator {
-    width: 20px;
-    height: 20px;
+    width: 42px;
+    height: 42px;
     font-size: 10px;
   }
 

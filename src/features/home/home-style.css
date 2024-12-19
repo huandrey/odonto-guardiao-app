@@ -7,14 +7,13 @@
 }
 
 body {
-  font-family: 'Segoe UI', system-ui, sans-serif;
+  font-family: "Inter", 'sans-serif';
   background-color: var(--background-color);
   color: var(--text-color);
 }
 
 .container {
   width: 100%;
-  padding-bottom: 80px;
   display: flex;
   flex-direction: column;
 }

@@ -19,6 +19,7 @@ function App() {
           <Route path="/reset-password-success" element={<Pages.ResetaSenhaSucessoPage />} />
           <Route path="/pontos-apoio" element={<Pages.PontosApoioPage />} />
           <Route path="/denuncia" element={<Pages.DenunciaPage />} />
+          <Route path="/confirmacao-denuncia" element={<Pages.ConfirmacaoDenuncia />} />
         </Routes>
       </Router>
     </SidebarProvider>

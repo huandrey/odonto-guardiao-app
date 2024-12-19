@@ -42,7 +42,7 @@ export const CustomSelect: React.FC<CustomSelectProps> = ({
       option.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredOptions(filtered);
-  }, [searchTerm, options]);
+  }, [searchTerm]);
 
   const handleSelect = (option: string) => {
     onChange(option);

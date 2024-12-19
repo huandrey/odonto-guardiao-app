@@ -1,5 +1,5 @@
 .app-header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   background: var(--primary-color, #F4B63C);
@@ -38,6 +38,7 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  cursor: pointer;
 }
 
 .logo-icon {
@@ -46,7 +47,7 @@
   padding: 0.5rem;
   font-weight: bold;
   font-size: 1rem;
-  min-width: 40px;
+  min-width: 10rem;
   height: 40px;
   display: flex;
   align-items: center;
@@ -54,6 +55,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 .header-title {

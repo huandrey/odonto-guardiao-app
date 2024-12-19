@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StepValidation } from '../components/denuncia-content/denuncia-content';
+import { StepValidation } from '../components/denuncia-content';
 
 export const useStepsNavigation = (totalSteps: number, stepsValidation: StepValidation) => {
   const [currentStep, setCurrentStep] = useState(1);

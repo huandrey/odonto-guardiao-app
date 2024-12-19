@@ -17,7 +17,7 @@ export const NavigationInferiorControl = ({
   isNextDisabled = false
 }: NavigationInferiorControlProps) => {
   const navigate = useNavigate();
- 
+
   const handleNext = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
@@ -30,45 +30,45 @@ export const NavigationInferiorControl = ({
     }
   };
   const redirect = () => {
-    navigate('/home')
+    navigate('/')
   }
   return (
     <div className="navigation-buttons">
-    {currentStep === 1 && (
-      <button
-        className="button button-secondary"
-        onClick={redirect}
-      >
-        Voltar para tela inicial
-      </button>
-    )}
+      {currentStep === 1 && (
+        <button
+          className="button button-secondary"
+          onClick={redirect}
+        >
+          Voltar para tela inicial
+        </button>
+      )}
 
-    {currentStep > 1 && (
-      <button
-        className="button button-secondary"
-        onClick={handlePrevious}
-      >
-        Voltar
-      </button>
-    )}
+      {currentStep > 1 && (
+        <button
+          className="button button-secondary"
+          onClick={handlePrevious}
+        >
+          Voltar
+        </button>
+      )}
 
-    {currentStep < totalSteps ? (
-      <button
-        className="button button-primary"
-        onClick={handleNext}
-        disabled={isNextDisabled}
-      >
-        Próximo
-      </button>
-    ) : (
-      <button
-        className="button button-primary"
-        onClick={handleFinalStep}
-        disabled={isNextDisabled}
-      >
-        Enviar Denúncia
-      </button>
-    )}
-  </div>
+      {currentStep < totalSteps ? (
+        <button
+          className="button button-primary"
+          onClick={handleNext}
+          disabled={isNextDisabled}
+        >
+          Próximo
+        </button>
+      ) : (
+        <button
+          className="button button-primary"
+          onClick={handleFinalStep}
+          disabled={isNextDisabled}
+        >
+          Enviar Denúncia
+        </button>
+      )}
+    </div>
   )
 }

@@ -1,14 +1,11 @@
 import React from 'react';
-import { ComplaintForm } from './components/denuncia-content/denuncia-content';
 import './denuncia-page-style.css';
-import { Sidebar } from '../../shared/components/sidebar';
-import { useSidebar } from '../../shared/components/sidebar/use-sidebar';
 import { useNavigate } from 'react-router-dom';
 import { Header } from '../../shared/components/header/components';
+import { ComplaintForm } from './components/denuncia-content';
 
 export const DenunciaPage: React.FC = () => {
   const navigate = useNavigate();
-  const { isSidebarOpen, toggleSidebar } = useSidebar();
 
   return (
     <div className="report-flow-container">
@@ -26,16 +23,7 @@ export const DenunciaPage: React.FC = () => {
           <></>
         </Header.Right>
       </Header>
-      {/* <Header
-        title="Realizar Denúncia"
-        isMenuOpen={isSidebarOpen}
-        onMenuClick={toggleSidebar}
-      /> */}
       <br />
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => toggleSidebar()}
-      />
       <ComplaintForm />
     </div>
   );

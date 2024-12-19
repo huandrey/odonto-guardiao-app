@@ -16,12 +16,12 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   stepsValidation
 }) => {
   const steps: Step[] = [
-    { number: 1, label: "Endereço da Vítima" },
-    { number: 2, label: "Dados da Vítima" },
+    { number: 1, label: "Endereço" },
+    { number: 2, label: "Dados" },
     { number: 3, label: "Lesões Gerais" },
     { number: 4, label: "Lesões Visíveis" },
     { number: 5, label: "Lesões Graves" },
-    { number: 6, label: "Informações Extra" },
+    { number: 6, label: "Extra" },
     { number: 7, label: "Resumo" }
   ];
 
@@ -48,7 +48,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
             key={step.number}
             stepNumber={step.number}
             label={step.label}
-            isActive={currentStep === step.number}
+            isActive={currentStep >= step.number}
             onTap={onTap}
             isClickable={isStepClickable(step.number)}
           />

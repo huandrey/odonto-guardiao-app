@@ -1,0 +1,29 @@
+* {
+  font-family: "Inter", 'sans-serif';
+}
+
+.complaint-form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.progress-container {
+  margin-bottom: 2rem;
+}
+
+.step-content {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+
+  min-height: 300px;
+}
+
+@media (max-width: 640px) {
+  .step-content {
+    padding: 2rem;
+  }
+}

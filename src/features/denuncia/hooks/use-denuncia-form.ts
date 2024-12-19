@@ -33,7 +33,8 @@ const initialComplaint: Complaint = {
 
 export const useComplaintForm = () => {
   const [complaint, setComplaint] = useState<Complaint>(initialComplaint);
-  
+  const [pdf, setPdf] = useState<Blob | null>(null);
+
   const updateComplaint = (field: keyof Complaint, value: unknown) => {
     setComplaint(prev => ({
       ...prev,
@@ -43,6 +44,8 @@ export const useComplaintForm = () => {
 
   return {
     complaint,
-    updateComplaint
+    updateComplaint,
+    pdf,
+    setPdf,
   };
 };
