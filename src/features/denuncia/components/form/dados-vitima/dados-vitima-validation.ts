@@ -1,5 +1,3 @@
-import { VictimData } from "../../types/denuncia";
-
 export interface VictimDataValidationErrors {
   name?: string;
   birthDate?: string;
@@ -15,7 +13,7 @@ export const DADOS_VITIMA_VALIDATION_MESSAGES = {
   INVALID_GENERO: 'Gênero inválido',
 } as const;
 
-export const validateVictimDataStep = (victimData: VictimData): VictimDataValidationErrors => {
+export const validateVictimDataStep = (victimData: VictimDataValidationErrors): VictimDataValidationErrors => {
   const errors: VictimDataValidationErrors = {};
 
   if (!victimData.name?.trim()) {
@@ -44,7 +42,7 @@ export const validateVictimDataStep = (victimData: VictimData): VictimDataValida
   return errors;
 };
 
-export const isVictimDataValid = (victimData: VictimData): boolean => {
+export const isVictimDataValid = (victimData: VictimDataValidationErrors): boolean => {
   const errors = validateVictimDataStep(victimData);
   return Object.keys(errors).length === 0;
 };
