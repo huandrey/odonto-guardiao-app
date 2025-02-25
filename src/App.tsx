@@ -20,6 +20,7 @@ function App() {
           <Route path="/pontos-apoio" element={<Pages.PontosApoioPage />} />
           <Route path="/denuncia" element={<Pages.DenunciaPage />} />
           <Route path="/confirmacao-denuncia" element={<Pages.ConfirmacaoDenuncia />} />
+          <Route path="/documentos-norteadores" element={<Pages.DocumentosNorteadoresPage />} />
         </Routes>
       </Router>
     </SidebarProvider>

@@ -18,14 +18,8 @@ export const InicioV3Content = () => {
 
   return (
     <div className="container">
-      <nav>
+      <nav className="nav-inicio">
         <Header.Logo />
-        <div className="nav-links">
-          <a href="#">Início</a>
-          <a href="#">Sobre</a>
-          <a href="#">Ajuda</a>
-          <a href="#">Contato</a>
-        </div>
       </nav>
 
       <main>
@@ -35,13 +29,18 @@ export const InicioV3Content = () => {
             <span>olhar profissional</span>
           </h1>
           <p className="hero-description">
-            Como profissional da odontologia, você tem um papel crucial na identificação
-            de sinais de violência. Use nossa plataforma para reportar casos suspeitos
+            Como profissional da Odontologia, você tem um papel fundamental na identificação
+            de sinais de violência infato-juvenil. Portanto, use nossa plataforma para reportar casos suspeitos
             e ajudar a proteger quem mais precisa.
           </p>
-          <a className="cta-button" onClick={() => setIsModalOpen(true)}>
-            Realizar Denúncia
-          </a>
+          <div className="cta-button-container">
+            <a className="cta-button" onClick={() => navigation('/denuncia')}>
+              Realizar Denúncia
+            </a>
+            <a className="cta-button outline" onClick={() => navigation('/documentos-norteadores')}>
+              Documentos Norteadores
+            </a>
+          </div>
         </div>
 
         <div className="illustration">

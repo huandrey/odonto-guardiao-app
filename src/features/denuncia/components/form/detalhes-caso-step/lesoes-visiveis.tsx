@@ -11,7 +11,7 @@ interface VisibleInjuriesStepProps {
 const LocationSelector: React.FC<{
   location?: InjuryLocation;
   onChange: (location: InjuryLocation) => void;
-}> = ({ location = { "Cabeca": false, "Rosto": false, "Pescoco": false }, onChange }) => (
+}> = ({ location = { "Cabeça": false, "Face": false, "Pescoço": false }, onChange }) => (
   <div className="location-selector">
     <p>Selecione a localização:</p>
     <div className="location-checkboxes">
@@ -52,13 +52,36 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
       updateCaseDetails(updates);
     };
 
+    // const handleBooleanChange =
+    // (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    //   const isYes = e.target.checked;
+    //   onChange({ ...caseDetails, [field]: isYes });
+    // };
+
+
   return (
     <div className="injuries-step">
       <h2>Lesões Visíveis</h2>
       <div className="questions-container">
+      <div className="form-card">
+          <div className="form-card-header">
+            <span className="question-text">Sinais de Agressão?</span>
+          </div>
+          <div className="form-card-content">
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={caseDetails.hasAggressionSigns}
+                onChange={handleBooleanChange('hasAggressionSigns')}
+              />
+              <span className="slider round"></span>
+            </label>
+          </div>
+        </div>
+
         <div className="form-card">
           <div className="form-card-header">
-            <span className="question-text">Hematoma Visível?</span>
+            <span className="question-text">Hematoma?</span>
             <div className="tooltip-container">
               <span className="info-icon">i</span>
               <div className="tooltip">

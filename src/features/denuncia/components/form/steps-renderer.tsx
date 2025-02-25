@@ -2,7 +2,6 @@ import React from 'react';
 import { Complaint } from '../../types/denuncia';
 import { AddressStep } from '../form/address/address-step';
 import { VictimDataStep } from '../form/dados-vitima/dados-vitima-step';
-import { GeneralInjuriesStep } from '../form/detalhes-caso-step/lesoes-gerais';
 import { VisibleInjuriesStep } from '../form/detalhes-caso-step/lesoes-visiveis';
 import { SevereInjuriesStep } from '../form/detalhes-caso-step/lesoes-graves';
 import { ExtraInfoStep } from '../form/informacoes-adicionais-step/informacoes-adicionais';
@@ -51,23 +50,23 @@ export const StepsRenderer: React.FC<StepsRendererProps> = ({
       onChange={(victimData) => onComplaintUpdate('victimData', victimData)}
       onValidationChange={onValidationChange}
     />,
-    3: <GeneralInjuriesStep
+    // 3: <GeneralInjuriesStep
+    //   caseDetails={complaint.caseDetails}
+    //   onChange={(caseDetails) => onComplaintUpdate('caseDetails', caseDetails)}
+    // />,
+    3: <VisibleInjuriesStep
       caseDetails={complaint.caseDetails}
       onChange={(caseDetails) => onComplaintUpdate('caseDetails', caseDetails)}
     />,
-    4: <VisibleInjuriesStep
+    4: <SevereInjuriesStep
       caseDetails={complaint.caseDetails}
       onChange={(caseDetails) => onComplaintUpdate('caseDetails', caseDetails)}
     />,
-    5: <SevereInjuriesStep
-      caseDetails={complaint.caseDetails}
-      onChange={(caseDetails) => onComplaintUpdate('caseDetails', caseDetails)}
-    />,
-    6: <ExtraInfoStep
+    5: <ExtraInfoStep
       additionalInfo={complaint.additionalInfo}
       onChange={(additionalInfo) => onComplaintUpdate('additionalInfo', additionalInfo)}
     />,
-    7: <ComplaintSummary 
+    6: <ComplaintSummary 
       complaint={complaint} 
       onChange={handleSubmitAndNavigate} 
       />,

@@ -27,7 +27,7 @@ export const ExtraInfoStep: React.FC<ExtraInfoStepProps> = ({
             ...additionalInfo,
             extraInformation: e.target.value
           })}
-          placeholder="Descreva aqui informações adicionais sobre o caso..."
+          placeholder="Aqui você pode acrescentar detalhes sobres os sinais físicos (onde e como se apresentam), e também suas percepções sobre o comportamento da criança e do adolescente."
           className="info-textarea"
         />
       </div>

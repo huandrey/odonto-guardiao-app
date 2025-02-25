@@ -10,3 +10,4 @@ export { SobrePage } from './sobre/sobre-page';
 export { PontosApoioPage } from './pontos-apoio/pontos-apoio-page';
 export { DenunciaPage } from './denuncia/denuncia-page';
 export { ConfirmacaoDenuncia } from './confirmacao-denuncia';
+export { DocumentosNorteadoresPage } from './documentos-norteadores/documentos-norteadores-page';

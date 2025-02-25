@@ -12,7 +12,7 @@ export const FAQ = () => {
   const faqItems: FAQItem[] = [
     {
       question: "Como faço para registrar uma denúncia?",
-      answer: "Para registrar uma denúncia, clique no botão 'Realizar Denúncia' no topo da página. Você precisará fornecer seu número de CRO para validação. Todas as denúncias são tratadas com total sigilo e confidencialidade."
+      answer: "Para registrar uma denúncia, clique no botão 'Realizar Denúncia' no topo da página. Você precisará fornecer seu número de CRO para validação de sua profissão. Mas não se preocupe, todas as denúncias são tratadas com total sigilo e confidencialidade."
     },
     {
       question: "Minha identidade será mantida em sigilo?",
@@ -20,7 +20,7 @@ export const FAQ = () => {
     },
     {
       question: "Que tipos de casos posso denunciar?",
-      answer: "Você pode denunciar qualquer suspeita de violência ou maus-tratos identificados durante o atendimento odontológico, incluindo: violência física, psicológica, negligência, abuso infantil, violência doméstica e outras formas de agressão."
+      answer: "Você pode denunciar qualquer suspeita de violência ou maus-tratos contra crianças e adolescentes identificados durante o atendimento odontológico, incluindo: violência física, psicológica, negligência, abuso infantil, violência doméstica e outras formas de agressão."
     },
     {
       question: "Como identificar sinais de violência?",
@@ -28,7 +28,7 @@ export const FAQ = () => {
     },
     {
       question: "O que acontece após fazer uma denúncia?",
-      answer: "Sua denúncia será encaminhada para os órgãos competentes (Conselho Tutelar, delegacias especializadas ou autoridades responsáveis) que tomarão as providências necessárias para investigar e proteger a possível vítima."
+      answer: "Inicialmente, sua denúncia será encaminhada para o Conselhor Tutar, o qual, tomará as providências necessárias para investigar e proteger a possível vítima."
     },
     {
       question: "Preciso ter certeza absoluta para fazer uma denúncia?",

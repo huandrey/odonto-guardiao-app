@@ -20,9 +20,9 @@ export type StepValidation = {
 };
 
 const LOCATION_TRANSLATIONS: Record<string, string> = {
-  Cabeca: 'Cabeça',
-  Rosto: 'Rosto',
-  Pescoco: 'Pescoço'
+  "Cabeça": 'Cabeça',
+  Face: 'Face',
+  "Pescoço": 'Pescoço'
 };
 
 export const ComplaintForm: React.FC = () => {
@@ -102,27 +102,26 @@ export const ComplaintForm: React.FC = () => {
     // Preparar dados da tabela
     const tableData = [
       // Lesões Gerais
-      ['Sinais de Agressão', complaint.caseDetails.hasAggressionSigns ? 'Sim' : 'Não', 'Não se aplica'],
-      ['Lesão no Olho', complaint.caseDetails.hasEyeInjury ? 'Sim' : 'Não', 'Não se aplica'],
+      ['Sinais de Agressão', complaint.caseDetails.hasAggressionSigns ? 'Sim' : '-', 'Não se aplica'],
+      ['Lesão no Olho', complaint.caseDetails.hasEyeInjury ? 'Sim' : '-', 'Não se aplica'],
 
       // Lesões com Localização
-      ['Hematoma', complaint.caseDetails.hasBruises ? 'Sim' : 'Não',
+      ['Hematoma', complaint.caseDetails.hasBruises ? 'Sim' : '-',
         complaint.caseDetails.hasBruises && translateLocations(complaint.caseDetails.bruisesLocation)],
 
-      ['Abrasão', complaint.caseDetails.hasAbrasion ? 'Sim' : 'Não', translateLocations(complaint.caseDetails.abrasionLocation)],
+      ['Abrasão', complaint.caseDetails.hasAbrasion ? 'Sim' : '-', translateLocations(complaint.caseDetails.abrasionLocation)],
 
-      ['Laceração', complaint.caseDetails.hasLaceration ? 'Sim' : 'Não', translateLocations(complaint.caseDetails.lacerationLocation)],
+      ['Laceração', complaint.caseDetails.hasLaceration ? 'Sim' : '-', translateLocations(complaint.caseDetails.lacerationLocation)],
 
-      ['Queimadura', complaint.caseDetails.hasBurns ? 'Sim' : 'Não', translateLocations(complaint.caseDetails.burnsLocation)],
+      ['Queimadura', complaint.caseDetails.hasBurns ? 'Sim' : '-', translateLocations(complaint.caseDetails.burnsLocation)],
 
-      ['Marca de Mordida', complaint.caseDetails.hasBiteMarks ? 'Sim' : 'Não', translateLocations(complaint.caseDetails.biteMarksLocation)],
-
+      ['Marca de Mordida', complaint.caseDetails.hasBiteMarks ? 'Sim' : '-', translateLocations(complaint.caseDetails.biteMarksLocation)],
 
       // Outras Lesões
-      ['Laceração no Freio Labial', complaint.caseDetails.hasLabialFreinumLaceration ? 'Sim' : 'Não', 'Não se aplica'],
-      ['Laceração no Freio Lingual', complaint.caseDetails.hasLingualFreinumLaceration ? 'Sim' : 'Não', 'Não se aplica'],
-      ['Trauma no Palato', complaint.caseDetails.hasPalateTrauma ? 'Sim' : 'Não', 'Não se aplica'],
-      ['Trauma Dental', complaint.caseDetails.hasDentalTrauma ? 'Sim' : 'Não', 'Não se aplica']
+      // ['Laceração no Freio Labial', complaint.caseDetails.hasLabialFreinumLaceration ? 'Sim' : '-', 'Não se aplica'],
+      // ['Laceração no Freio Lingual', complaint.caseDetails.hasLingualFreinumLaceration ? 'Sim' : '-', 'Não se aplica'],
+      // ['Trauma no Palato', complaint.caseDetails.hasPalateTrauma ? 'Sim' : '-', 'Não se aplica'],
+      // ['Trauma Dental', complaint.caseDetails.hasDentalTrauma ? 'Sim' : '-', 'Não se aplica']
     ];
 
     // Gerar tabela

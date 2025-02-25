@@ -4,6 +4,7 @@ import { validateAddressStep } from './address-step-validation';
 import { Address } from '../../../types/denuncia';
 import { CustomSelect } from '../../../../../shared/components/select';
 import { DenunciaController } from '../../../denuncia-controller';
+import { AddressController } from './address-controller';
 
 interface ValidationErrors {
   cep?: string;
@@ -29,6 +30,8 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange,   o
   const [errors, setErrors] = React.useState<ValidationErrors>({});
   const [touchedFields, setTouchedFields] = React.useState<TouchedFields>({});
   const denunciaController = new DenunciaController();
+  const addressController  = new AddressController();
+
   const handleBlur = (field: keyof TouchedFields) => {
     setTouchedFields(prev => ({
       ...prev,
@@ -36,8 +39,6 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange,   o
     }));
   };
   const neighborhoods = denunciaController.getAllBairros();
-
-
   React.useEffect(() => {
     const validationErrors = validateAddressStep(address);
     const isValid = Object.keys(validationErrors).length === 0;
@@ -45,6 +46,21 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange,   o
     setErrors(validationErrors);
     onValidationChange?.(isValid);
   }, [address]);
+
+  React.useEffect(() => {
+    if (!!address.cep && address.cep?.length >= 8) {
+      addressController.getAddressByCep(address.cep)
+        .then((addressData) => {
+          if (addressData) {
+            onChange({
+              ...address,
+              street: addressData.logradouro,
+              neighborhood: addressData.bairro,
+            });
+          }
+        });
+    }
+  }, [address.cep])
 
   const handleNeighborhoodChange = (selectedNeighborhood: string) => {
     const conselho = denunciaController.findConselhoByBairro(selectedNeighborhood);

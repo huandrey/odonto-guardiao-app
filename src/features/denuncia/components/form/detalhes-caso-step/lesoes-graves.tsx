@@ -11,7 +11,7 @@ interface SevereInjuriesStepProps {
 const LocationSelector: React.FC<{
   location?: InjuryLocation;
   onChange: (location: InjuryLocation) => void;
-}> = ({ location = { "Cabeca": false, "Rosto": false, "Pescoco": false }, onChange }) => (
+}> = ({ location = { "Cabeça": false, "Face": false, "Pescoço": false }, onChange }) => (
   <div className="location-selector">
     <p>Selecione a localização:</p>
     <div className="location-checkboxes">
@@ -50,7 +50,7 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
 
   return (
     <div className="injuries-step">
-      <h2>Lesões Graves</h2>
+      <h2>Outras Lesões</h2>
       <div className="questions-container">
         <div className="form-card">
           <div className="form-card-header">
@@ -103,6 +103,22 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
                 }
               />
             )}
+          </div>
+        </div>
+
+        <div className="form-card">
+          <div className="form-card-header">
+            <span className="question-text">Lesão no Olho?</span>
+          </div>
+          <div className="form-card-content">
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={caseDetails.hasEyeInjury}
+                onChange={handleBooleanChange('hasEyeInjury')}
+              />
+              <span className="slider round"></span>
+            </label>
           </div>
         </div>
       </div>
