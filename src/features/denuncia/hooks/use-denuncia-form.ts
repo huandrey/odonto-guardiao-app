@@ -23,10 +23,6 @@ const initialComplaint: Complaint = {
     hasLaceration: false,
     hasBurns: false,
     hasBiteMarks: false,
-    hasLabialFreinumLaceration: false,
-    hasLingualFreinumLaceration: false,
-    hasPalateTrauma: false,
-    hasDentalTrauma: false
   },
   additionalInfo: {}
 };
