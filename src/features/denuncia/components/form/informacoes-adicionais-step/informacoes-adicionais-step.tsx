@@ -13,7 +13,7 @@ export const AdditionalInfoStep: React.FC<AdditionalInfoStepProps> = ({
 }) => {
   return (
     <div className="additional-info-step">
-      <h2>Informações Adicionais</h2>
+      <h2>Informações Extras</h2>
 
       <div className="info-cards">
         <div className="info-card">

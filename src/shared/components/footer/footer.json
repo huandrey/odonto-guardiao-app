@@ -1,0 +1,57 @@
+{
+  "title": "OdontoGuardião",
+  "description": "Plataforma dedicada ao combate à violência infato-juvenil através do olhar atento dos profissionais da odontologia.",
+  "sections": [
+    {
+      "title": "Links Rápidos",
+      "links": [
+        {
+          "title": "Fazer denúncia",
+          "url": "/denuncia"
+        },
+        {
+          "title": "Documentos Norteadores",
+          "url": "/documentos-norteadores"
+        }
+      ]
+    },
+    {
+      "title": "Contatos de Emergência",
+      "contacts": [
+        {
+          "title": "Disque 100 - Direitos Humanos",
+          "phone": "100"
+        },
+        {
+          "title": "Disque 180 - Violência contra Mulher",
+          "phone": "180"
+        },
+        {
+          "title": "Disque 190 - Polícia Militar",
+          "phone": "190"
+        }
+      ]
+    },
+    {
+      "title": "Conselhos Tutelares",
+      "contacts": [
+        {
+          "title": "C.T. Norte: (83) 2017-0062",
+          "phone": "83 2017-0062"
+        },
+        {
+          "title": "C.T. Sul: (83) 2017-0059",
+          "phone": "83 2017-0059"
+        },
+        {
+          "title": "C.T. Leste: (83) 2017-0061",
+          "phone": "83 2017-0061"
+        },
+        {
+          "title": "C.T. Oeste: (83) 2017-0060",
+          "phone": "83 2017-0060"
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import './documentos-norteadores-content.css'
 import legalDocuments from '../utils/legal-documents.json'
 import { Header } from '../../../shared/components/header/components';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from '../../../shared/components/footer';
 
 interface LegalDocument {
   title: string;
@@ -95,37 +96,7 @@ const DocumentosNorteadoresContent: React.FC = () => {
         </div>
       </main>
 
-      <footer className="legaldoc-footer">
-        <div className="legaldoc-footer-content">
-          <div className="legaldoc-footer-section">
-            <h3 className="legaldoc-footer-title">Biblioteca Legal</h3>
-            <p className="legaldoc-footer-description">
-              Acesso a documentos legais importantes para Cirurgiões-Dentistas, com foco em artigos específicos.
-            </p>
-          </div>
-          <div className="legaldoc-footer-section">
-            <h4 className="legaldoc-footer-subtitle">Links Úteis</h4>
-            <ul className="legaldoc-footer-links">
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Início</a></li>
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Documentos</a></li>
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Sobre</a></li>
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Contato</a></li>
-            </ul>
-          </div>
-          <div className="legaldoc-footer-section">
-            <h4 className="legaldoc-footer-subtitle">Recursos</h4>
-            <ul className="legaldoc-footer-links">
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">FAQ</a></li>
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Suporte</a></li>
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Termos de Uso</a></li>
-              <li className="legaldoc-footer-link-item"><a href="#" className="legaldoc-footer-link">Política de Privacidade</a></li>
-            </ul>
-          </div>
-        </div>
-        <div className="legaldoc-footer-bottom">
-          <p className="legaldoc-copyright">&copy; {new Date().getFullYear()} OdontoGuardião. Todos os direitos reservados.</p>
-        </div>
-      </footer>
+      <Footer pageTitle='Biblioteca Legal' pageDescription='Acesso a documentos legais importantes para Cirurgiões-Dentistas.'/>
     </div>
   );
 };

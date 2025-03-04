@@ -105,7 +105,7 @@ export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint })
         </div>
 
         <div className="summary-section">
-          <h3>Informações Adicionais</h3>
+          <h3>Informações Extras</h3>
           {complaint.additionalInfo.extraInformation ? (
             <div className="additional-info-item">
               <p className="info-title">Informações Extras:</p>
