@@ -64,10 +64,6 @@ main {
   flex: 1;
 }
 
-.hero-content {
-  padding-right: 2rem;
-}
-
 .hero-title {
   text-align: left;
   font-size: clamp(2rem, 5vw, 3.5rem);
@@ -147,8 +143,11 @@ main {
     padding: 3rem 4rem;
   }
 
-  .hero-content {
-    padding-right: 1rem;
+  .cta-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 }
 
@@ -194,10 +193,6 @@ main {
     padding: 2rem 2.5rem;
     text-align: center;
     gap: 2rem;
-  }
-
-  .hero-content {
-    padding-right: 0;
   }
 
   .hero-title {

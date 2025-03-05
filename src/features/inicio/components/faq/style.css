@@ -1,6 +1,6 @@
 .faq-container {
   max-width: 800px;
-  margin: 20px auto;
+  margin: 1rem auto;
   font-family: 'Inter', sans-serif;
 }
 
@@ -14,7 +14,7 @@
 
 .faq-item {
   margin-bottom: 1rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #EEEEEE;
   border-radius: 8px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -60,7 +60,7 @@
 }
 
 .faq-answer-content {
-  padding: 20px;
+  padding: 1rem;
   border-top: 1px solid #edf2f7;
 }
 
@@ -100,9 +100,5 @@
 
   .faq-question {
     padding: 16px;
-  }
-
-  .faq-answer-content {
-    padding: 0 16px 16px;
   }
 }

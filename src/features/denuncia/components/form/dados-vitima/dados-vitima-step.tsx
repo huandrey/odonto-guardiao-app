@@ -59,6 +59,7 @@ export const VictimDataStep: React.FC<VictimDataStepProps> = ({
         <input
           id="birthDate"
           type="date"
+          placeholder='dd/mm/aaaa'
           value={victimData.birthDate}
           onChange={(e) => onChange({ ...victimData, birthDate: e.target.value })}
         />

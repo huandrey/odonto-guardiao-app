@@ -14,6 +14,8 @@ import { DenunciaController, DenunciaState } from '../denuncia-controller';
 import { UserOptions } from 'jspdf-autotable';
 import { InjuryLocation } from '../types/denuncia';
 import jsPDF from 'jspdf';
+import { Header } from '../../../shared/components/header/components';
+import { Step } from './progress-bar/components/step-indicator';
 
 export type StepValidation = {
   [key: number]: boolean;
@@ -241,7 +243,32 @@ export const ComplaintForm: React.FC = () => {
     }
   };
 
+  const steps: Step[] = [
+    { number: 1, label: "Endereço da Vítima" },
+    { number: 2, label: "Dados da Vítima" },
+    { number: 3, label: "Lesões Gerais" },
+    { number: 4, label: "Lesões Visíveis" },
+    { number: 5, label: "Outras Lesões" },
+    { number: 6, label: "Extra" },
+    { number: 7, label: "Resumo" }
+  ];
+  console.log(currentStep)
   return (
+    <>
+     <Header>
+        <Header.Left>
+          <Header.BackButton onClick={() => navigate(-1)} />
+        </Header.Left>
+
+        <Header.Center>
+          <Header.Title>{steps[currentStep - 1].label}</Header.Title>
+        </Header.Center>
+
+        <Header.Right>
+          <></>
+        </Header.Right>
+      </Header>
+
     <div className="complaint-form">
       <br />
       <br />
@@ -275,5 +302,6 @@ export const ComplaintForm: React.FC = () => {
         />
       )}
     </div>
+    </>
   );
 };

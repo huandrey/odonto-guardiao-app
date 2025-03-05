@@ -39,6 +39,7 @@ export const InicioV3Content = () => {
         <div className="illustration">
           <img className="animated-kid-image" src={illustration} alt="pai e filha" width={550} height={450} />
         </div>
+        
       </main>
       <FAQ />
       <Footer pageTitle='OdontoGuardião' pageDescription='Plataforma dedicada ao combate à violência infato-juvenil através do olhar atento dos profissionais da odontologia.'/>

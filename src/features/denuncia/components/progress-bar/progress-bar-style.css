@@ -103,12 +103,12 @@
 /* Responsividade */
 @media (max-width: 640px) {
   .step-indicators {
-    margin-top: -24px;
+    margin-top: -1.3rem;
   }
   .step-indicator {
-    width: 42px;
-    height: 42px;
-    font-size: 10px;
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.7rem;
   }
 
   .step-label {
