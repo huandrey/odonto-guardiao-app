@@ -16,7 +16,7 @@ export const FAQ = () => {
     },
     {
       question: "Minha identidade será mantida em sigilo?",
-      answer: "Sim, garantimos total sigilo da sua identidade. O número do CRO é solicitado apenas para validar que você é um profissional registrado, mas essa informação não será vinculada à denúncia."
+      answer: "Sim, garantimos total sigilo da sua identidade. Sua privacidade é nossa prioridade, e todas as informações fornecidas são tratadas com absoluta confidencialidade."
     },
     {
       question: "Que tipos de casos posso denunciar?",

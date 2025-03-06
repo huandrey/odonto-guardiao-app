@@ -1,11 +1,3 @@
-/* Reset e configurações base */
-.legaldoc-container * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", 'sans-serif';
-}
-
 .legaldoc-container {
   background-color: #f8f9fc;
   min-height: 100vh;
@@ -69,7 +61,7 @@ nav {
   display: block;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 7rem 2rem;
 }
 
 .legaldoc-hero-section {
@@ -224,72 +216,6 @@ nav {
   transform: translateY(0);
 }
 
-/* Estilos de Rodapé */
-.legaldoc-footer {
-  width: 100%;
-  background-color: #2D3748;
-  color: #E2E8F0;
-  padding: 3rem 0 1rem 0;
-  margin-top: auto;
-}
-
-.legaldoc-footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.legaldoc-footer-title {
-  color: #FBC02D;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.legaldoc-footer-subtitle {
-  color: #FBC02D;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-
-.legaldoc-footer-description {
-  color: #A0AEC0;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.legaldoc-footer-links {
-  list-style: none;
-  padding: 0;
-}
-
-.legaldoc-footer-link-item {
-  margin-bottom: 0.5rem;
-}
-
-.legaldoc-footer-link {
-  color: #A0AEC0;
-  text-decoration: none;
-  transition: color 0.2s ease;
-  display: inline-block;
-  padding: 0.2rem 0;
-}
-
-.legaldoc-footer-link:hover {
-  color: #FBC02D;
-}
-
-.legaldoc-footer-bottom {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 2rem 0;
-  text-align: center;
-  border-top: 1px solid #4A5568;
-  margin-top: 2rem;
-}
-
 .legaldoc-copyright {
   color: #A0AEC0;
   font-size: 0.875rem;
@@ -356,34 +282,6 @@ nav {
   }
 }
 
-/* Estilos para Mobile Pequeno */
-@media (max-width: 576px) {
-  .legaldoc-footer-content {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .legaldoc-footer-section {
-    text-align: center;
-  }
-
-  .legaldoc-footer {
-    padding: 2rem 0 1rem 0;
-  }
-
-  .legaldoc-hero-title {
-    font-size: 2rem;
-  }
-
-  .legaldoc-hero-description {
-    font-size: 1rem;
-  }
-
-  .legaldoc-navigation {
-    padding: 0.75rem;
-  }
-}
-
 /* Classes de Utilidade Responsivas */
 .legaldoc-hide-on-mobile {
   display: initial;
@@ -402,17 +300,3 @@ nav {
     display: initial;
   }
 }
-
-/* JavaScript para o menu mobile */
-/* Adicione isso ao seu arquivo principal JavaScript:
-
-document.addEventListener('DOMContentLoaded', function() {
-  const mobileMenuButton = document.querySelector('.legaldoc-mobile-menu-button');
-  const navLinks = document.querySelector('.legaldoc-nav-links');
-  
-  mobileMenuButton.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-  });
-});
-
-*/

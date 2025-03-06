@@ -7,6 +7,7 @@ import { SevereInjuriesStep } from '../form/detalhes-caso-step/lesoes-graves';
 import { ExtraInfoStep } from '../form/informacoes-adicionais-step/informacoes-adicionais';
 import { ComplaintSummary } from '../form/resumo-denuncia/resumo-denuncia';
 import { useNavigate } from 'react-router-dom';
+import { ViewDocument } from './view-document';
 
 interface StepsRendererProps {
   currentStep: number;
@@ -70,6 +71,7 @@ export const StepsRenderer: React.FC<StepsRendererProps> = ({
       complaint={complaint} 
       onChange={handleSubmitAndNavigate} 
       />,
+    7: <ViewDocument />
   };
 
   return steps[currentStep as keyof typeof steps] || null;

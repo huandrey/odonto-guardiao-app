@@ -44,22 +44,26 @@
   margin-bottom: 0.5rem;
 }
 
-.footer-section ul li a {
+.footer-section ul li button {
+  font-size: 1rem;
   color: #A0AEC0;
   text-decoration: none;
   transition: color 0.2s ease;
   display: inline-block;
   padding: 0.2rem 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
-.footer-section ul li a:hover {
+.footer-section ul li button:hover {
   color: #FBC02D;
 }
 
 .footer-bottom {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 2rem 0;
+  padding: 2rem 2rem 1rem;
   text-align: center;
   border-top: 1px solid #4A5568;
   margin-top: 2rem;
@@ -74,7 +78,6 @@
   }
 }
 
-/* Small Mobile Styles */
 @media (max-width: 576px) {
   .footer-content {
     grid-template-columns: 1fr;

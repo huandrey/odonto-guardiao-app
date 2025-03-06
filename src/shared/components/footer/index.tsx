@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import './style.css'
 
 export const Footer = ({
@@ -7,6 +8,8 @@ export const Footer = ({
   pageTitle: string
   pageDescription: string
 }) => {
+  const navigation = useNavigate();
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -18,8 +21,8 @@ export const Footer = ({
         <div className="footer-section">
           <h4>Links Rápidos</h4>
           <ul>
-            <li><a href="/denuncia">Fazer denúncia</a></li>
-            <li><a href="/documentos-norteadores">Documentos Norteadores</a></li>
+            <li><button onClick={() => navigation('/denuncia')}>Fazer denúncia</button></li>
+            <li><button onClick={() => navigation('/documentos-norteadores')}>Documentos Norteadores</button></li>
           </ul>
         </div>
 

@@ -9,7 +9,6 @@ interface ComplaintSummaryProps {
   onValidationChange?: (isValid: boolean) => void;
 }
 
-
 const FIELD_TRANSLATIONS: Record<keyof CaseDetails, string> = {
   hasAggressionSigns: 'Sinais de Agressão',
   hasEyeInjury: 'Lesão no Olho',
@@ -23,10 +22,6 @@ const FIELD_TRANSLATIONS: Record<keyof CaseDetails, string> = {
   burnsLocation: 'Localização da Queimadura',
   hasBiteMarks: 'Marca de Mordida',
   biteMarksLocation: 'Localização da Marca de Mordida',
-  // hasLabialFreinumLaceration: 'Laceração no Freio Labial',
-  // hasLingualFreinumLaceration: 'Laceração no Freio Lingual',
-  // hasPalateTrauma: 'Trauma no Palato',
-  // hasDentalTrauma: 'Trauma Dental'
 };
 
 const LOCATION_TRANSLATIONS: Record<string, string> = {

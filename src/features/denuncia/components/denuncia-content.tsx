@@ -33,16 +33,10 @@ export const ComplaintForm: React.FC = () => {
   const { complaint, updateComplaint, setPdf } = useComplaintForm();
   const { stepsValidation, updateStepValidation } = useStepsValidation();
   const { currentStep, setCurrentStep, goToSpecificStep } = useStepsNavigation(totalSteps, stepsValidation);
-  // const [feedback, setFeedback] = useState({ show: false, success: false, message: '' });
   const [submitState, setSubmitState] = useState<DenunciaState>({ status: 'idle' });
   const denunciaController = new DenunciaController();
 
   const isNextButtonDisabled = !stepsValidation[currentStep];
-
-  // const redirectToHome = () => {
-  //   navigate('/home');
-  // };
-
 
   const generatePDF = () => {
     const doc = new jsPDF();
@@ -118,12 +112,6 @@ export const ComplaintForm: React.FC = () => {
       ['Queimadura', complaint.caseDetails.hasBurns ? 'Sim' : '-', translateLocations(complaint.caseDetails.burnsLocation)],
 
       ['Marca de Mordida', complaint.caseDetails.hasBiteMarks ? 'Sim' : '-', translateLocations(complaint.caseDetails.biteMarksLocation)],
-
-      // Outras Lesões
-      // ['Laceração no Freio Labial', complaint.caseDetails.hasLabialFreinumLaceration ? 'Sim' : '-', 'Não se aplica'],
-      // ['Laceração no Freio Lingual', complaint.caseDetails.hasLingualFreinumLaceration ? 'Sim' : '-', 'Não se aplica'],
-      // ['Trauma no Palato', complaint.caseDetails.hasPalateTrauma ? 'Sim' : '-', 'Não se aplica'],
-      // ['Trauma Dental', complaint.caseDetails.hasDentalTrauma ? 'Sim' : '-', 'Não se aplica']
     ];
 
     // Gerar tabela
@@ -186,7 +174,6 @@ export const ComplaintForm: React.FC = () => {
 
 
   const handleFinalStep = async () => {
-    console.log('eai?')
     setSubmitState({ status: 'loading' });
 
     try {

@@ -23,7 +23,7 @@ export const InicioV3Content = () => {
           </h1>
           <p className="hero-description">
             Como profissional da Odontologia, você tem um papel fundamental na identificação
-            de sinais de violência infato-juvenil. Portanto, use nossa plataforma para reportar casos suspeitos
+            de sinais de violência infatojuvenil. Portanto, use nossa plataforma para reportar casos suspeitos
             e ajudar a proteger quem mais precisa.
           </p>
           <div className="cta-button-container">
@@ -42,7 +42,7 @@ export const InicioV3Content = () => {
         
       </main>
       <FAQ />
-      <Footer pageTitle='OdontoGuardião' pageDescription='Plataforma dedicada ao combate à violência infato-juvenil através do olhar atento dos profissionais da odontologia.'/>
+      <Footer pageTitle='OdontoGuardião' pageDescription='Plataforma dedicada ao combate à violência infatojuvenil através do olhar atento dos profissionais da Odontologia.'/>
     </div>
   )
 }
