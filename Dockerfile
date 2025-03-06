@@ -22,8 +22,14 @@ FROM nginx:alpine
 # Copiar os arquivos construídos do estágio anterior
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copiar configuração personalizada do Nginx (opcional)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Criar diretórios para sites-available e sites-enabled
+RUN mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled
+
+# Copiar configuração personalizada do Nginx para sites-available
+COPY nginx.conf /etc/nginx/sites-available/meu_projeto
+
+# Criar link simbólico para habilitar o site
+RUN ln -s /etc/nginx/sites-available/meu_projeto /etc/nginx/sites-enabled/
 
 # Expor a porta 80
 EXPOSE 80
