@@ -9,8 +9,7 @@ interface CouncilRegion {
 }
 
 export class DenunciaService {
-
-  private readonly API_URL = 'http://localhost:3000/api';
+  private readonly API_URL = 'http://10.96.0.201:3000/api';
 
   private static conselhosRegionais: CouncilRegion[] = [
     {
