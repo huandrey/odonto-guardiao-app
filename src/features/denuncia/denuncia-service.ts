@@ -9,7 +9,7 @@ interface CouncilRegion {
 }
 
 export class DenunciaService {
-  private readonly API_URL = 'http://10.96.0.201:3000/api';
+  private readonly API_URL = import.meta.env.VITE_BACKEND_URL
 
   private static conselhosRegionais: CouncilRegion[] = [
     {

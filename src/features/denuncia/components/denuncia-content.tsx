@@ -10,7 +10,9 @@ import { ProgressBar } from './progress-bar';
 import { StepsRenderer } from './form/steps-renderer';
 import { NavigationInferiorControl } from './navigation-inferior-control';
 import { FeedbackModal } from './modal_feedback';
-import { DenunciaController, DenunciaState } from '../denuncia-controller';
+import { 
+  // DenunciaController, 
+  DenunciaState } from '../denuncia-controller';
 import { UserOptions } from 'jspdf-autotable';
 import { InjuryLocation } from '../types/denuncia';
 import jsPDF from 'jspdf';
@@ -29,12 +31,12 @@ const LOCATION_TRANSLATIONS: Record<string, string> = {
 
 export const ComplaintForm: React.FC = () => {
   const navigate = useNavigate();
-  const totalSteps = 7;
+  const totalSteps = 6;
   const { complaint, updateComplaint, setPdf } = useComplaintForm();
   const { stepsValidation, updateStepValidation } = useStepsValidation();
   const { currentStep, setCurrentStep, goToSpecificStep } = useStepsNavigation(totalSteps, stepsValidation);
   const [submitState, setSubmitState] = useState<DenunciaState>({ status: 'idle' });
-  const denunciaController = new DenunciaController();
+  // const denunciaController = new DenunciaController();
 
   const isNextButtonDisabled = !stepsValidation[currentStep];
 
@@ -181,7 +183,11 @@ export const ComplaintForm: React.FC = () => {
       setPdf(pdfBlob!);
 
       const protocol = `DEN-${new Date().getFullYear()}-${Math.floor(Math.random() * 1000000).toString().padStart(6, '0')}`;
-      const result = await denunciaController.submitDenuncia(complaint, pdfBlob, protocol);
+      // const result = await denunciaController.submitDenuncia(complaint, pdfBlob, protocol);
+      const result = {
+          status: 'success',
+          protocol: protocol
+      } as DenunciaState;
       setSubmitState(result);
 
       if (result.status === 'success' && result.protocol) {
@@ -233,11 +239,11 @@ export const ComplaintForm: React.FC = () => {
   const steps: Step[] = [
     { number: 1, label: "Endereço da Vítima" },
     { number: 2, label: "Dados da Vítima" },
-    { number: 3, label: "Lesões Gerais" },
-    { number: 4, label: "Lesões Visíveis" },
-    { number: 5, label: "Outras Lesões" },
-    { number: 6, label: "Extra" },
-    { number: 7, label: "Resumo" }
+    // { number: 3, label: "Lesões Gerais" },
+    { number: 3, label: "Lesões Visíveis" },
+    { number: 4, label: "Outras Lesões" },
+    { number: 5, label: "Extra" },
+    { number: 6, label: "Resumo" }
   ];
   console.log(currentStep)
   return (

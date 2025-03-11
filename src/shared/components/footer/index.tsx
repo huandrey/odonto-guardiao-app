@@ -1,5 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import './style.css'
+import ufcg from '../../../assets/ufcg.png'
+import uepb from '../../../assets/uepb2.png'
+import splab from '../../../assets/splab2.webp'
 
 export const Footer = ({
   pageTitle,
@@ -44,7 +47,17 @@ export const Footer = ({
             <li>C.T. Oeste: (83) 2017-0060</li>
           </ul>
         </div>
+        <div className="footer-section">
+          <h4>Parcerias</h4>
+          <div className="parcerias">
+            <img src={ufcg} width={80} height={75}/>
+            <img src={uepb} width={200} height={70}/>
+            <img src={splab} width={190} height={60}/>
+          </div>
       </div>
+      </div>
+
+     
 
       <div className="footer-bottom">
         <p>&copy; 2025 OdontoGuardião. Todos os direitos reservados.</p>

@@ -92,3 +92,10 @@
     padding: 2rem 0 1rem 0;
   }
 }
+
+
+.parcerias {
+  display: flex;
+  gap: 1.4rem;
+  items-align: center;
+}
