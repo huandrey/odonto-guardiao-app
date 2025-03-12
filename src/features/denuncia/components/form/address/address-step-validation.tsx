@@ -18,9 +18,7 @@ export const ADDRESS_VALIDATION_MESSAGES = {
 
 export const validateAddressStep = (address: Address): AddressValidationErrors => {
   const errors: AddressValidationErrors = {};
-  if (!address.cep?.trim()) {
-    errors.cep = 'CEP é obrigatório';
-  } else if (!/^\d{5}-?\d{3}$/.test(address.cep)) {
+  if (!!address.cep && !/^\d{5}-?\d{3}$/.test(address.cep)) {
     errors.cep = ADDRESS_VALIDATION_MESSAGES.INVALID_CEP;
   }
   if (!address.street?.trim()) {

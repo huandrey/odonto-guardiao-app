@@ -242,7 +242,7 @@ export const ComplaintForm: React.FC = () => {
     // { number: 3, label: "Lesões Gerais" },
     { number: 3, label: "Lesões Visíveis" },
     { number: 4, label: "Outras Lesões" },
-    { number: 5, label: "Extra" },
+    { number: 5, label: "Adicionais" },
     { number: 6, label: "Resumo" }
   ];
   console.log(currentStep)

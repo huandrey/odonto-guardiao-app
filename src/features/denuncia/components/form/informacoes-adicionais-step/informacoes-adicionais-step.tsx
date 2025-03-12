@@ -13,11 +13,11 @@ export const AdditionalInfoStep: React.FC<AdditionalInfoStepProps> = ({
 }) => {
   return (
     <div className="additional-info-step">
-      <h2>Informações Extras</h2>
+      <h2>Informações Adicionais</h2>
 
       <div className="info-cards">
         <div className="info-card">
-          <h3>Informações Extras sobre o Caso</h3>
+          <h3>Informações Adicionais sobre o Caso</h3>
           <p className="description">
             Você possui mais informações sobre o caso? Toda informação será considerada como importante.
           </p>

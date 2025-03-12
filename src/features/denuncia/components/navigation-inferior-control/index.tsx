@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import './navigation-inferior-control.css'
+import { Modal } from "../../../inicio/components/modal";
+import React from "react";
 
 interface NavigationInferiorControlProps {
   totalSteps: number;
@@ -18,6 +20,8 @@ export const NavigationInferiorControl = ({
 }: NavigationInferiorControlProps) => {
   const navigate = useNavigate();
 
+  const [modalVisible, setModalVisible] = React.useState(false);
+
   const handleNext = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
@@ -29,15 +33,21 @@ export const NavigationInferiorControl = ({
       setCurrentStep(currentStep - 1);
     }
   };
-  const redirect = () => {
-    navigate('/')
-  }
+  
   return (
+    <>
+    { modalVisible && <Modal 
+      title="Você tem certeza que deseja sair?" 
+      primaryLabel="Não! Voltar de onde parei" 
+      warning="Estou ciente que perderei todas as informações preenchidas"
+      onPrimary={() => setModalVisible(false)}
+      onSecondary={() => navigate('/')}
+    />}
     <div className="navigation-buttons">
       {currentStep === 1 && (
         <button
           className="button button-secondary"
-          onClick={redirect}
+          onClick={() => setModalVisible(true)}
         >
           Voltar para tela inicial
         </button>
@@ -70,5 +80,6 @@ export const NavigationInferiorControl = ({
         </button>
       )}
     </div>
+    </>
   )
 }
