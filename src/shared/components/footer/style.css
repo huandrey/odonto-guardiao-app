@@ -71,12 +71,20 @@
   font-size: 0.875rem;
 }
 
+.parcerias {
+  display: flex;
+  gap: 1.4rem;
+  items-align: center;
+}
 
 @media (max-width: 968px) {
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+
 
 @media (max-width: 576px) {
   .footer-content {
@@ -91,11 +99,12 @@
   .footer {
     padding: 2rem 0 1rem 0;
   }
+  
+  .parcerias {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 
-.parcerias {
-  display: flex;
-  gap: 1.4rem;
-  items-align: center;
-}

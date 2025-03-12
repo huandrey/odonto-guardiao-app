@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom'
 import './style.css'
 import ufcg from '../../../assets/ufcg.png'
 import uepb from '../../../assets/uepb2.png'
-import splab from '../../../assets/splab2.webp'
 
 export const Footer = ({
   pageTitle,
@@ -52,7 +51,6 @@ export const Footer = ({
           <div className="parcerias">
             <img src={ufcg} width={80} height={75}/>
             <img src={uepb} width={200} height={70}/>
-            <img src={splab} width={190} height={60}/>
           </div>
       </div>
       </div>
