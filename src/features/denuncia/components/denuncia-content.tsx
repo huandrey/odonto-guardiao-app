@@ -18,6 +18,7 @@ import { InjuryLocation } from '../types/denuncia';
 import jsPDF from 'jspdf';
 import { Header } from '../../../shared/components/header/components';
 import { Step } from './progress-bar/components/step-indicator';
+import { Modal } from '../../inicio/components/modal';
 
 export type StepValidation = {
   [key: number]: boolean;
@@ -36,6 +37,8 @@ export const ComplaintForm: React.FC = () => {
   const { stepsValidation, updateStepValidation } = useStepsValidation();
   const { currentStep, setCurrentStep, goToSpecificStep } = useStepsNavigation(totalSteps, stepsValidation);
   const [submitState, setSubmitState] = useState<DenunciaState>({ status: 'idle' });
+  const [modalVisible, setModalVisible] = React.useState(false)
+
   // const denunciaController = new DenunciaController();
 
   const isNextButtonDisabled = !stepsValidation[currentStep];
@@ -100,7 +103,7 @@ export const ComplaintForm: React.FC = () => {
     // Preparar dados da tabela
     const tableData = [
       // Lesões Gerais
-      ['Sinais de Agressão', complaint.caseDetails.hasAggressionSigns ? 'Sim' : '-', 'Não se aplica'],
+      ['Sinais de Agressão Física', complaint.caseDetails.hasAggressionSigns ? 'Sim' : '-', 'Não se aplica'],
       ['Lesão no Olho', complaint.caseDetails.hasEyeInjury ? 'Sim' : '-', 'Não se aplica'],
 
       // Lesões com Localização
@@ -241,16 +244,23 @@ export const ComplaintForm: React.FC = () => {
     { number: 2, label: "Dados da Vítima" },
     // { number: 3, label: "Lesões Gerais" },
     { number: 3, label: "Lesões Visíveis" },
-    { number: 4, label: "Outras Lesões" },
+    { number: 4, label: "Outras Lesões Físicas" },
     { number: 5, label: "Adicionais" },
     { number: 6, label: "Resumo" }
   ];
-  console.log(currentStep)
+    
   return (
     <>
+    { modalVisible && <Modal 
+          title="Você tem certeza que deseja sair?" 
+          primaryLabel="Não! Voltar de onde parei" 
+          warning="Estou ciente que perderei todas as informações preenchidas"
+          onPrimary={() => setModalVisible(false)}
+          onSecondary={() => navigate(-1)}
+        />}
      <Header>
         <Header.Left>
-          <Header.BackButton onClick={() => navigate(-1)} />
+          <Header.BackButton onClick={() => setModalVisible(true)} />
         </Header.Left>
 
         <Header.Center>
