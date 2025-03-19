@@ -1,6 +1,12 @@
 .confirmation-container {
+  display: grid;
+  place-items: center; /* Shorthand for align-items: center; justify-items: center; */
+  height: 100vh; /* Optional: makes the container full viewport height */
+}
+
+.confirmation-content {
   max-width: 800px;
-  margin: 40px auto;
+  /* margin: 40px auto; */
   padding: 40px 20px;
   text-align: center;
   background-color: #fff;
@@ -120,5 +126,97 @@
   .button {
     width: 100%;
     justify-content: center;
+  }
+}
+
+.feedback-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.feedback-modal {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s;
+  -webkit-animation: fadeIn 1s;
+  -moz-animation: fadeIn 1s;
+  -o-animation: fadeIn 1s;
+  -ms-animation: fadeIn 1s;
+}
+
+/* .feedback-modal.fade-out {
+-webkit-animation: fadeIn 1s;
+-moz-animation: fadeIn 1s;
+-o-animation: fadeIn 1s;
+-ms-animation: fadeIn 1s;
+} */
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* @keyframes fadeOut {
+  0%: {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+} */
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.feedback-modal-content {
+  text-align: center;
+}
+
+.feedback-modal-content h2 {
+  color: #333;
+  margin-bottom: 16px;
+  font-size: 24px;
+}
+
+.feedback-modal-content p {
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .feedback-buttons {
+    flex-direction: column;
+  }
+  
+  .feedback-buttons .button {
+    width: 100%;
   }
 }

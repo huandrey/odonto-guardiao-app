@@ -65,7 +65,7 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
       <div className="questions-container">
       <div className="form-card">
           <div className="form-card-header">
-            <span className="question-text">Sinais de Agressão?</span>
+            <span className="question-text">Sinais de Agressão Física?</span>
           </div>
           <div className="form-card-content">
             <label className="switch">
