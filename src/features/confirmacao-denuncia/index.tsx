@@ -1,6 +1,7 @@
 import './style.css'
 import { Complaint } from '../denuncia/types/denuncia';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
+import React from 'react';
 
 interface LocationState {
   complaint: Complaint;
@@ -12,6 +13,15 @@ export const ConfirmacaoDenuncia = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const state = location.state as LocationState;
+  const [showModal, setShowModal] = React.useState(false);
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowModal(true);
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   if (!state?.complaint || !state?.protocol || !state?.pdf) {
     return <Navigate to="/" replace />;
@@ -28,8 +38,18 @@ export const ConfirmacaoDenuncia = () => {
     window.URL.revokeObjectURL(url);
   };
 
+  const openFeedbackForm = () => {
+    window.open('https://forms.gle/FAbUWmAio5QDWBhTA', '_blank');
+    setShowModal(false);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="confirmation-container">
+      <div className="confirmation-content">
       <div className="success-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="20 6 9 17 4 12"></polyline>
@@ -76,6 +96,28 @@ export const ConfirmacaoDenuncia = () => {
         <strong>Conselho Tutelar Norte</strong><br />
         Telefone: (83) 2017-0062
       </div>
+      </div>
+
+      {showModal && (
+        <div className="feedback-modal-overlay">
+          <div className="feedback-modal">
+            <button className="close-modal" onClick={closeModal}>×</button>
+            <div className="feedback-modal-content">
+              <h2>Avalie nossa plataforma</h2>
+              <p>Sua opinião é muito importante para continuarmos melhorando!</p>
+              <p>Leva menos de 3 minutos para responder.</p>
+              <div className="feedback-buttons">
+                <button className="button button-primary" onClick={openFeedbackForm}>
+                  Avaliar agora
+                </button>
+                <button className="button button-secondary" onClick={closeModal}>
+                  Mais tarde
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
