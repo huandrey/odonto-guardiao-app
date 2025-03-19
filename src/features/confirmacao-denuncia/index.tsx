@@ -15,6 +15,8 @@ export const ConfirmacaoDenuncia = () => {
   const state = location.state as LocationState;
   const [showModal, setShowModal] = React.useState(false);
 
+  const modalRef = React.useRef<HTMLDivElement>(null);
+
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setShowModal(true);
@@ -46,6 +48,7 @@ export const ConfirmacaoDenuncia = () => {
   const closeModal = () => {
     setShowModal(false);
   };
+
 
   return (
     <div className="confirmation-container">
@@ -100,7 +103,7 @@ export const ConfirmacaoDenuncia = () => {
 
       {showModal && (
         <div className="feedback-modal-overlay">
-          <div className="feedback-modal">
+          <div className="feedback-modal" ref={modalRef}>
             <button className="close-modal" onClick={closeModal}>×</button>
             <div className="feedback-modal-content">
               <h2>Avalie nossa plataforma</h2>
