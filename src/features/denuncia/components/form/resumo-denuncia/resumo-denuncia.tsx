@@ -10,7 +10,7 @@ interface ComplaintSummaryProps {
 }
 
 const FIELD_TRANSLATIONS: Record<keyof CaseDetails, string> = {
-  hasAggressionSigns: 'Sinais de Agressão',
+  hasAggressionSigns: 'Sinais de Agressão Física',
   hasEyeInjury: 'Lesão no Olho',
   hasBruises: 'Hematoma',
   bruisesLocation: 'Localização do Hematoma',

@@ -50,7 +50,7 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
 
   return (
     <div className="injuries-step">
-      <h2>Outras Lesões</h2>
+      <h2>Outras Lesões Físicas</h2>
       <div className="questions-container">
         <div className="form-card">
           <div className="form-card-header">

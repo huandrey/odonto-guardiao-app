@@ -19,7 +19,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     { number: 1, label: "Endereço" },
     { number: 2, label: "Dados" },
     { number: 3, label: "Lesões Visíveis" },
-    { number: 4, label: "Outras Lesões" },
+    { number: 4, label: "Outras Lesões Físicas" },
     { number: 5, label: "Adicionais" },
     { number: 6, label: "Resumo" }
   ];

@@ -211,6 +211,8 @@ input:checked+.slider:before {
   opacity: 0;
   transform: translateY(-4px);
   transition: all 0.2s ease;
+
+  font-weight: 600;
 }
 
 .tooltip-container:hover .tooltip {

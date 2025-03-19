@@ -12,7 +12,7 @@ export const FAQ = () => {
   const faqItems: FAQItem[] = [
     {
       question: "Como faço para registrar uma denúncia?",
-      answer: "Para registrar uma denúncia, clique no botão 'Realizar Denúncia' no topo da página. Você precisará fornecer seu número de CRO para validação de sua profissão. Mas não se preocupe, todas as denúncias são tratadas com total sigilo e confidencialidade."
+      answer: "Para registrar uma denúncia, clique no botão 'Realizar Denúncia' no topo da página. Não se preocupe, todas as denúncias são tratadas com total sigilo."
     },
     {
       question: "Minha identidade será mantida em sigilo?",
@@ -28,7 +28,7 @@ export const FAQ = () => {
     },
     {
       question: "O que acontece após fazer uma denúncia?",
-      answer: "Inicialmente, sua denúncia será encaminhada para o Conselhor Tutar, o qual, tomará as providências necessárias para investigar e proteger a possível vítima."
+      answer: "Inicialmente, sua denúncia será encaminhada para o Conselhor Tutelar, o qual, tomará as providências necessárias para investigar e proteger a possível vítima."
     },
     {
       question: "Preciso ter certeza absoluta para fazer uma denúncia?",
