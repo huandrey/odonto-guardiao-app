@@ -68,6 +68,12 @@
   transform: scale(1.2);
 }
 
+.step-indicator.error {
+  border-color: #EF9A9A;
+  background-color: #EF5350;
+  color: #fff;
+}
+
 /* Estado completo do indicador */
 .step-indicator.completed {
   background-color: #F4B63C;
@@ -80,6 +86,7 @@
   position: absolute;
   top: 64px;
   font-size: 12px;
+  font-weight: 500;
   color: #666;
   opacity: 0;
   transform: translateY(-10px);
@@ -87,9 +94,13 @@
   white-space: nowrap;
 }
 
+.step-label.error {
+  color: #EF5350;
+}
+
 /* Estados do label */
 .step-indicator-wrapper:hover .step-label,
-.step-indicator.active + .step-label {
+.step-indicator.active+.step-label {
   opacity: 1;
   transform: translateY(0);
 }
@@ -105,6 +116,7 @@
   .step-indicators {
     margin-top: -1.3rem;
   }
+
   .step-indicator {
     width: 2rem;
     height: 2rem;

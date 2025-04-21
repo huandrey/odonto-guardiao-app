@@ -30,6 +30,6 @@ export const useStepsValidation = () => {
   return {
     stepsValidation,
     updateStepValidation,
-    isStepValid
+    isStepValid,
   };
 };

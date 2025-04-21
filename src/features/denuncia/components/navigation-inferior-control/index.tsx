@@ -39,7 +39,7 @@ export const NavigationInferiorControl = ({
     { modalVisible && <Modal 
       title="Você tem certeza que deseja sair?" 
       primaryLabel="Não! Voltar de onde parei" 
-      warning="Estou ciente que perderei todas as informações preenchidas"
+      // warning="Estou ciente que perderei todas as informações preenchidas"
       onPrimary={() => setModalVisible(false)}
       onSecondary={() => navigate('/')}
     />}

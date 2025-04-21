@@ -1,20 +1,26 @@
 
 // src/components/progress-bar/progress-bar.tsx
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import './progress-bar-style.css';
 import { Step, StepIndicator } from './components/step-indicator';
 
 interface ProgressBarProps {
   currentStep: number;
   onTap: (step: number) => void;
-  stepsValidation: Record<number, boolean>; 
+  stepsValidation: Record<number, boolean>;
+  error: { hasError: boolean; step: number; };
+  setError: Dispatch<SetStateAction<{ hasError: boolean; step: number; }>>
 }
 
 export const ProgressBar: React.FC<ProgressBarProps> = ({
   currentStep,
   onTap,
-  stepsValidation
+  stepsValidation,
+  error,
+  setError,
 }) => {
+  
+
   const steps: Step[] = [
     { number: 1, label: "Endereço" },
     { number: 2, label: "Dados" },
@@ -34,7 +40,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   return (
     <div className="progress-bar-container">
       <div className="progress-track">
-        <div 
+        <div
           className="progress-bar"
           style={{
             width: `${((currentStep - 1) / (steps.length - 1)) * 100}%`
@@ -50,9 +56,12 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
             isActive={currentStep >= step.number}
             onTap={onTap}
             isClickable={isStepClickable(step.number)}
+            error={step.number === error.step && error.hasError}
+            setError={setError}
           />
         ))}
       </div>
+
     </div>
   );
 };
