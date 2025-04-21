@@ -5,8 +5,6 @@ import { CaseDetails, Complaint } from '../../../types/denuncia';
 
 interface ComplaintSummaryProps {
   complaint: Complaint;
-  onChange: (complaint: Complaint) => void;
-  onValidationChange?: (isValid: boolean) => void;
 }
 
 const FIELD_TRANSLATIONS: Record<keyof CaseDetails, string> = {
@@ -119,26 +117,3 @@ export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint })
     </div>
   );
 };
-
-
-// ... resto do código permanece igual até a parte da localização ...
-
-// const addLocationInfo = (title: string, location?: { "Cabeça": boolean; "Rosto": boolean; "Pescoço": boolean }): number => {
-//   if (location) {
-//     const locations = Object.entries(location)
-//       .filter(([_, value]) => value)
-//       .map(([key]) => key.charAt(0).toUpperCase() + key.slice(1));
-
-//     if (locations.length > 0) {
-//       doc.setFontSize(12);
-//       const text = `${title}: ${locations.join(', ')}`;
-//       const splitText = doc.splitTextToSize(text, 1120);
-//       doc.text(splitText, 20, yPos);
-//       return yPos + (splitText.length * 12);
-//     }
-//   }
-//   return yPos;
-// };
-
-
-// ... resto do código permanece igual

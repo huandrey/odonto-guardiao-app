@@ -1,5 +1,4 @@
 import React from 'react';
-import './lesoes.css';
 import { CaseDetails, InjuryLocation } from '../../../types/denuncia';
 
 interface VisibleInjuriesStepProps {
@@ -39,31 +38,24 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
       ...updates
     });
   };
-  
+
   const handleBooleanChange =
     (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const isYes = e.target.checked;
-      const updates: Partial<CaseDetails> = { [field]: isYes };
+      const isChecked = e.target.checked;
+      const updates: Partial<CaseDetails> = { [field]: isChecked };
 
-      if (!isYes) {
+      if (!isChecked) {
         updates[`${field}Location` as keyof CaseDetails] = undefined;
       }
 
       updateCaseDetails(updates);
     };
 
-    // const handleBooleanChange =
-    // (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    //   const isYes = e.target.checked;
-    //   onChange({ ...caseDetails, [field]: isYes });
-    // };
-
-
   return (
     <div className="injuries-step">
       <h2>Lesões Visíveis</h2>
       <div className="questions-container">
-      <div className="form-card">
+        <div className="form-card">
           <div className="form-card-header">
             <span className="question-text">Sinais de Agressão Física?</span>
           </div>
@@ -79,6 +71,15 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
           </div>
         </div>
 
+        {/* <SwitchQuestion
+          title='Hematoma?'
+          locationName='bruisesLocation'
+          onChangeLocation={updateCaseDetails}
+          caseDetails={caseDetails}
+          checked={caseDetails.hasBruises}
+          onChange={() => handleBooleanChange('hasBruises')}
+          tooltip='Acúmulo de sangue em um tecido devido à lesão de vasos sanguíneos.'
+        /> */}
         <div className="form-card">
           <div className="form-card-header">
             <span className="question-text">Hematoma?</span>

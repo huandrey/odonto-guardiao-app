@@ -1,47 +1,24 @@
-import React from 'react';
-import './lesoes.css';
-import { CaseDetails, InjuryLocation } from '../../../types/denuncia';
+import React from 'react'
+import { CaseDetails } from '../../../../types/denuncia'
+
+import './lesoes.css'
+import { SelecionadorLocalLesaoFisica } from './components/selecionador-lesao-fisica'
 
 interface SevereInjuriesStepProps {
-  caseDetails: CaseDetails;
-  onChange: (caseDetails: CaseDetails) => void;
-  onValidationChange?: (isValid: boolean) => void; // Nova prop
+  caseDetails: CaseDetails
+  onChange: (caseDetails: CaseDetails) => void
+  onValidationChange?: (isValid: boolean) => void
 }
-
-const LocationSelector: React.FC<{
-  location?: InjuryLocation;
-  onChange: (location: InjuryLocation) => void;
-}> = ({ location = { "Cabeça": false, "Face": false, "Pescoço": false }, onChange }) => (
-  <div className="location-selector">
-    <p>Selecione a localização:</p>
-    <div className="location-checkboxes">
-      {Object.entries(location).map(([key, checked]) => (
-        <label key={key}>
-          <input
-            type="checkbox"
-            checked={checked}
-            onChange={(e) => {
-              console.log('eai@' + key)
-              onChange({ ...location, [key]: e.target.checked })
-            }}
-          />
-          <span>{key.charAt(0).toUpperCase() + key.slice(1)}</span>
-        </label>
-      ))}
-    </div>
-  </div>
-);
 
 export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
   caseDetails,
   onChange,
 }) => {
-  const handleBooleanChange =
-    (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const isYes = e.target.checked;
-      const update: Partial<CaseDetails> = { [field]: isYes };
+  const handleBooleanChange = (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const isChecked = e.target.checked;
+      const update: Partial<CaseDetails> = { [field]: isChecked };
 
-      if (!isYes) {
+      if (!isChecked) {
         update[`${field}Location` as keyof CaseDetails] = undefined;
       }
 
@@ -72,7 +49,7 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
               <span className="slider round"></span>
             </label>
             {caseDetails.hasBurns && (
-              <LocationSelector
+              <SelecionadorLocalLesaoFisica
                 location={caseDetails.burnsLocation}
                 onChange={(location) =>
                   onChange({ ...caseDetails, burnsLocation: location })
@@ -96,7 +73,7 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
               <span className="slider round"></span>
             </label>
             {caseDetails.hasBiteMarks && (
-              <LocationSelector
+              <SelecionadorLocalLesaoFisica
                 location={caseDetails.biteMarksLocation}
                 onChange={(location) =>
                   onChange({ ...caseDetails, biteMarksLocation: location })
