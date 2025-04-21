@@ -40,10 +40,10 @@ export const Footer = ({
         <div className="footer-section">
           <h4>Conselhos Tutelares</h4>
           <ul>
-            <li>C.T. Norte: (83) 2017-0062</li>
-            <li>C.T. Sul: (83) 2017-0059</li>
-            <li>C.T. Leste: (83) 2017-0061</li>
-            <li>C.T. Oeste: (83) 2017-0060</li>
+            <li>C.T. Norte: (83) 2017-0062 / 2017-0125</li>
+            <li>C.T. Sul: (83) 2017-0059 / 2017-0122</li>
+            <li>C.T. Leste: (83) 2017-0061 / 2017-0124</li>
+            <li>C.T. Oeste: (83) 2017-0060 / 2017-0123</li>
           </ul>
         </div>
         <div className="footer-section">
