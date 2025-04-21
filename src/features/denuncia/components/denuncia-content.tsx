@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './denuncia-content.css';
 
@@ -10,9 +10,7 @@ import { ProgressBar } from './progress-bar';
 import { StepsRenderer } from './form/steps-renderer';
 import { NavigationInferiorControl } from './navigation-inferior-control';
 import { FeedbackModal } from './modal_feedback';
-import { 
-  // DenunciaController, 
-  DenunciaState } from '../denuncia-controller';
+import { DenunciaState } from '../denuncia-controller';
 import { UserOptions } from 'jspdf-autotable';
 import { InjuryLocation } from '../types/denuncia';
 import jsPDF from 'jspdf';
@@ -33,7 +31,7 @@ const LOCATION_TRANSLATIONS: Record<string, string> = {
 export const ComplaintForm: React.FC = () => {
   const navigate = useNavigate();
   const totalSteps = 6;
-  const { complaint, updateComplaint, setPdf } = useComplaintForm();
+  const { complaint, updateComplaint, setPdf, hasExistingComplaintData, clearStoredData } = useComplaintForm();
   const { stepsValidation, updateStepValidation } = useStepsValidation();
   const { currentStep, setCurrentStep, goToSpecificStep } = useStepsNavigation(totalSteps, stepsValidation);
   const [submitState, setSubmitState] = useState<DenunciaState>({ status: 'idle' });
@@ -188,8 +186,8 @@ export const ComplaintForm: React.FC = () => {
       const protocol = `DEN-${new Date().getFullYear()}-${Math.floor(Math.random() * 1000000).toString().padStart(6, '0')}`;
       // const result = await denunciaController.submitDenuncia(complaint, pdfBlob, protocol);
       const result = {
-          status: 'success',
-          protocol: protocol
+        status: 'success',
+        protocol: protocol
       } as DenunciaState;
       setSubmitState(result);
 
@@ -242,23 +240,45 @@ export const ComplaintForm: React.FC = () => {
   const steps: Step[] = [
     { number: 1, label: "Endereço da Vítima" },
     { number: 2, label: "Dados da Vítima" },
-    // { number: 3, label: "Lesões Gerais" },
     { number: 3, label: "Lesões Visíveis" },
     { number: 4, label: "Outras Lesões Físicas" },
     { number: 5, label: "Adicionais" },
     { number: 6, label: "Resumo" }
   ];
-    
+
+  const [showContinueModal, setShowContinueModal] = useState(false)
+
+  useEffect(() => {
+    if (hasExistingComplaintData()) {
+      setShowContinueModal(true);
+    }
+  }, [])
+
+  const [error, setError] = useState({
+    hasError: false,
+    step: -2
+  });
+
   return (
     <>
-    { modalVisible && <Modal 
-          title="Você tem certeza que deseja sair?" 
-          primaryLabel="Não! Voltar de onde parei" 
-          warning="Estou ciente que perderei todas as informações preenchidas"
-          onPrimary={() => setModalVisible(false)}
-          onSecondary={() => navigate(-1)}
-        />}
-     <Header>
+      {showContinueModal && <Modal
+        title="Você tem uma denúncia em aberto, retomar de onde parou?"
+        primaryLabel="Sim, desejo continuar"
+        secondayLabel='Não, começar uma nova denúncia'
+        onPrimary={() => setShowContinueModal(false)}
+        onSecondary={() => {
+          clearStoredData()
+          setShowContinueModal(false)
+        }}
+      />}
+      {modalVisible && <Modal
+        title="Você tem certeza que deseja sair?"
+        primaryLabel="Não! Voltar de onde parei"
+        // warning="Estou ciente que perderei todas as informações preenchidas"
+        onPrimary={() => setModalVisible(false)}
+        onSecondary={() => navigate(-1)}
+      />}
+      <Header>
         <Header.Left>
           <Header.BackButton onClick={() => setModalVisible(true)} />
         </Header.Left>
@@ -272,39 +292,45 @@ export const ComplaintForm: React.FC = () => {
         </Header.Right>
       </Header>
 
-    <div className="complaint-form">
-      <br />
-      <br />
-      <br />
-      <ProgressBar currentStep={currentStep} onTap={goToSpecificStep} stepsValidation={stepsValidation} />
-      <div className="step-content">
-        <StepsRenderer
-          currentStep={currentStep}
-          complaint={complaint}
-          onComplaintUpdate={updateComplaint}
-          onValidationChange={(isValid) => updateStepValidation(currentStep, isValid)}
-        />
+      <div className="complaint-form">
         <br />
-        <NavigationInferiorControl
-          totalSteps={totalSteps}
-          currentStep={currentStep}
-          setCurrentStep={setCurrentStep}
-          handleFinalStep={async () => {
-            await handleFinalStep();
-            renderSubmitButton();
-          }}
-          isNextDisabled={isNextButtonDisabled || submitState.status === 'loading'}
-        />
+        <br />
+        <br />
+        <ProgressBar currentStep={currentStep} onTap={goToSpecificStep} stepsValidation={stepsValidation} error={error} setError={setError} />
+        <div className="step-content">
+          <StepsRenderer
+            currentStep={currentStep}
+            complaint={complaint}
+            onComplaintUpdate={updateComplaint}
+            onValidationChange={(isValid) => updateStepValidation(currentStep, isValid)}
+          />
+          <br />
+          <NavigationInferiorControl
+            totalSteps={totalSteps}
+            currentStep={currentStep}
+            setCurrentStep={(newStep) => {
+              setError({
+                step: -2,
+                hasError: false,
+              })
+              return setCurrentStep(newStep)
+            }}
+            handleFinalStep={async () => {
+              await handleFinalStep();
+              renderSubmitButton();
+            }}
+            isNextDisabled={isNextButtonDisabled || submitState.status === 'loading'}
+          />
+        </div>
+        {submitState.status === 'error' && (
+          <FeedbackModal
+            isSuccess={false}
+            message={submitState.message || 'Erro ao enviar denúncia'}
+            onClose={() => setSubmitState({ status: 'idle' })}
+            onRedirect={() => { }}
+          />
+        )}
       </div>
-      {submitState.status === 'error' && (
-        <FeedbackModal
-          isSuccess={false}
-          message={submitState.message || 'Erro ao enviar denúncia'}
-          onClose={() => setSubmitState({ status: 'idle' })}
-          onRedirect={() => { }}
-        />
-      )}
-    </div>
     </>
   );
 };
