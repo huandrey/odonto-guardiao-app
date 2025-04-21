@@ -13,10 +13,6 @@ function App() {
           <Route path="/home" element={<Pages.HomePage />} />
           <Route path="/register" element={<Pages.RegistroPage />} />
           <Route path="/login" element={<Pages.LoginPage />} />
-          <Route path="/forgot-password" element={<Pages.EnviarInstrucoesParaEmailPage />} />
-          <Route path="/forgot-password-confirmation" element={<Pages.ConfirmaEnvioInstrucoesPage />} />
-          <Route path="/reset-password" element={<Pages.ResetaSenhaPage />} />
-          <Route path="/reset-password-success" element={<Pages.ResetaSenhaSucessoPage />} />
           <Route path="/pontos-apoio" element={<Pages.PontosApoioPage />} />
           <Route path="/denuncia" element={<Pages.DenunciaPage />} />
           <Route path="/confirmacao-denuncia" element={<Pages.ConfirmacaoDenuncia />} />
