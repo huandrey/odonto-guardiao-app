@@ -13,7 +13,7 @@
 }
 
 /* Navigation Styles */
-nav.nav-inicio  {
+nav.nav-inicio {
   width: 100%;
   background-color: #FBC02D;
   padding: 1rem 2rem;
@@ -136,6 +136,12 @@ main {
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
+@media (max-width: 990px) {
+  .cta-button {
+    font-size: 0.8rem;
+  }
+}
+
 /* Tablet Styles */
 @media (max-width: 968px) {
   main {
@@ -148,6 +154,11 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    font-size: 1rem;
   }
 }
 
@@ -190,7 +201,7 @@ main {
 
   main {
     grid-template-columns: 1fr;
-    padding: 2rem 2.5rem;
+    padding: 2rem 1rem;
     text-align: center;
     gap: 2rem;
   }
@@ -200,17 +211,16 @@ main {
     margin: 1rem 0rem 1.5rem 0rem;
   }
 
- .illustration {
+  .illustration {
     order: -1;
-     /* display: none;
+    /* display: none;
      */
     padding: 0 1rem;
-  /* }  */
- }
+    /* }  */
+  }
 
   .cta-button {
     width: 100%;
-    max-width: 300px;
     text-align: center;
   }
 }

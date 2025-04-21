@@ -12,6 +12,7 @@
 }
 
 .modal-content {
+  max-width: 30rem;
   margin: 1rem;
   background-color: white;
   padding: 2rem;
