@@ -19,8 +19,6 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
   error,
   setError,
 }) => {
-  
-
   const steps: Step[] = [
     { number: 1, label: "Endereço" },
     { number: 2, label: "Dados" },
@@ -52,6 +50,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           <StepIndicator
             key={step.number}
             stepNumber={step.number}
+            currentStep={currentStep}
             label={step.label}
             isActive={currentStep >= step.number}
             onTap={onTap}

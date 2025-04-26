@@ -273,10 +273,10 @@ export const ComplaintForm: React.FC = () => {
       />}
       {modalVisible && <Modal
         title="Você tem certeza que deseja sair?"
-        primaryLabel="Não! Voltar de onde parei"
+        primaryLabel="Não! Voltar para onde estava"
         // warning="Estou ciente que perderei todas as informações preenchidas"
         onPrimary={() => setModalVisible(false)}
-        onSecondary={() => navigate(-1)}
+        onSecondary={() => navigate("/")}
       />}
       <Header>
         <Header.Left>

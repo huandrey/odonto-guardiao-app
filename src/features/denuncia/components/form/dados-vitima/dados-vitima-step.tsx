@@ -58,10 +58,20 @@ export const VictimDataStep: React.FC<VictimDataStepProps> = ({
         <label htmlFor="birthDate">Data de Nascimento</label>
         <input
           id="birthDate"
-          type="date"
+          type="text"
           placeholder='dd/mm/aaaa'
           value={victimData.birthDate}
-          onChange={(e) => onChange({ ...victimData, birthDate: e.target.value })}
+          onChange={(e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 2) {
+              value = value.slice(0, 2) + '/' + value.slice(2);
+            }
+            if (value.length > 5) {
+              value = value.slice(0, 5) + '/' + value.slice(5, 9);
+            }
+
+            onChange({ ...victimData, birthDate: value });
+          }}
         />
 
         {touchedFields.birthDate && errors.birthDate && (
