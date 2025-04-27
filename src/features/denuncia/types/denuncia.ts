@@ -34,7 +34,6 @@ export type InjuryAgressionLocation = {
 }
 
 export interface CaseDetails {
-  agressionSignsLocation: InjuryLocation;
   hasAggressionSigns: boolean;
   hasEyeInjury: boolean;
   hasBruises: boolean;

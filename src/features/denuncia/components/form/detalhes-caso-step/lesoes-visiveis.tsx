@@ -75,14 +75,14 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({ caseDe
               <span className="slider round"></span>
             </label>
 
-            {caseDetails.hasAggressionSigns && (
+            {/* {caseDetails.hasAggressionSigns && (
               <LocationSelector
                 location={caseDetails.agressionSignsLocation}
                 onChange={(location) =>
                   onChange({ ...caseDetails, agressionSignsLocation: location })
                 }
               />
-            )}
+            )} */}
           </div>
         </div>
 
