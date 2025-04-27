@@ -1,5 +1,3 @@
-
-// src/components/progress-bar/progress-bar.tsx
 import React, { Dispatch, SetStateAction } from 'react';
 import './progress-bar-style.css';
 import { Step, StepIndicator } from './components/step-indicator';

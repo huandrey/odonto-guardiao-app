@@ -22,14 +22,19 @@ export interface VictimData {
 export enum BodyPart {
   "Cabeça" = 'Cabeça',
   Face = 'Face',
-  "Pescoço" = 'Pescoço'
+  "Pescoço" = 'Pescoço',
 }
 
 export type InjuryLocation = {
   [key in BodyPart]: boolean;
 };
 
+export type InjuryAgressionLocation = {
+  [key in BodyPart | 'Outro']: boolean;
+}
+
 export interface CaseDetails {
+  agressionSignsLocation: InjuryLocation;
   hasAggressionSigns: boolean;
   hasEyeInjury: boolean;
   hasBruises: boolean;
@@ -42,10 +47,6 @@ export interface CaseDetails {
   burnsLocation?: InjuryLocation;
   hasBiteMarks: boolean;
   biteMarksLocation?: InjuryLocation;
-  // hasLabialFreinumLaceration: boolean;
-  // hasLingualFreinumLaceration: boolean;
-  // hasPalateTrauma: boolean;
-  // hasDentalTrauma: boolean;
 }
 
 export interface AdditionalInfo {

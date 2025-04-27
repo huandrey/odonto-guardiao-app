@@ -5,7 +5,7 @@ import { AdditionalInfo } from '../../../types/denuncia';
 interface ExtraInfoStepProps {
   additionalInfo: AdditionalInfo;
   onChange: (additionalInfo: AdditionalInfo) => void;
-  onValidationChange?: (isValid: boolean) => void; // Nova prop
+  onValidationChange?: (isValid: boolean) => void;
 }
 
 export const ExtraInfoStep: React.FC<ExtraInfoStepProps> = ({

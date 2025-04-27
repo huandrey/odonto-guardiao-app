@@ -15,15 +15,15 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
   onChange,
 }) => {
   const handleBooleanChange = (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const isChecked = e.target.checked;
-      const update: Partial<CaseDetails> = { [field]: isChecked };
+    const isChecked = e.target.checked;
+    const update: Partial<CaseDetails> = { [field]: isChecked };
 
-      if (!isChecked) {
-        update[`${field}Location` as keyof CaseDetails] = undefined;
-      }
+    if (!isChecked) {
+      update[`${field}Location` as keyof CaseDetails] = undefined;
+    }
 
-      onChange({ ...caseDetails, ...update });
-    };
+    onChange({ ...caseDetails, ...update });
+  };
 
   return (
     <div className="injuries-step">

@@ -7,7 +7,6 @@ export class AddressService {
   getAddressByCep = async (cep: string): Promise<CepResponse> => {
     try {
       const response = await axios.get(`${this.API_URL}/${cep}/json`);
-      console.log(response);
       if (response.status !== 200 && response.status !== 201) {
         throw new Error('Erro ao enviar denúncia');
       }

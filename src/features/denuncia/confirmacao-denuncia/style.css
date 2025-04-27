@@ -1,12 +1,11 @@
 .confirmation-container {
   display: grid;
-  place-items: center; /* Shorthand for align-items: center; justify-items: center; */
-  height: 100vh; /* Optional: makes the container full viewport height */
+  place-items: center;
+  height: 100vh;
 }
 
 .confirmation-content {
   max-width: 800px;
-  /* margin: 40px auto; */
   padding: 40px 20px;
   text-align: center;
   background-color: #fff;
@@ -157,26 +156,15 @@
   -ms-animation: fadeIn 1s;
 }
 
-/* .feedback-modal.fade-out {
--webkit-animation: fadeIn 1s;
--moz-animation: fadeIn 1s;
--o-animation: fadeIn 1s;
--ms-animation: fadeIn 1s;
-} */
-
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
+  0% {
+    opacity: 0;
+  }
 
-/* @keyframes fadeOut {
-  0%: {
-    opacity: 0;
-  }
   100% {
-    opacity: 0;
+    opacity: 1;
   }
-} */
+}
 
 .close-modal {
   position: absolute;
@@ -215,7 +203,7 @@
   .feedback-buttons {
     flex-direction: column;
   }
-  
+
   .feedback-buttons .button {
     width: 100%;
   }

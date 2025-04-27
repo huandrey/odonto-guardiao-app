@@ -8,7 +8,7 @@ interface ComplaintSummaryProps {
 }
 
 const FIELD_TRANSLATIONS: Record<keyof CaseDetails, string> = {
-  hasAggressionSigns: 'Sinais de Agressão Física',
+  hasAggressionSigns: 'Sinais de Violência Física',
   hasEyeInjury: 'Lesão no Olho',
   hasBruises: 'Hematoma',
   bruisesLocation: 'Localização do Hematoma',
@@ -67,7 +67,6 @@ export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint })
           <div className="details-list">
             {Object.entries(complaint.caseDetails).map(([key, value]) => {
               const translatedKey = FIELD_TRANSLATIONS[key as keyof CaseDetails];
-
               if (!translatedKey) return null; // Ignora campos sem tradução
 
               if (typeof value === 'boolean') {

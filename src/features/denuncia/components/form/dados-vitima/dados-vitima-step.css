@@ -66,13 +66,6 @@
   font-weight: normal;
 }
 
-/* Estilização específica para o input type="date" */
-/* .form-group input[type="date"] {
-  appearance: none;
-  background-color: white;
-  cursor: pointer;
-} */
-
 .form-group input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   padding: 0.2rem;
@@ -93,10 +86,6 @@
     padding: 1.1rem;
   }
 }
-
-/* .error {
-  border-color: #dc2626 !important;
-} */
 
 .error-message {
   color: #dc2626;
@@ -190,7 +179,6 @@
   }
 }
 
-/* Opcional: Se quiser que o texto também seja realçado quando selecionado */
 .radio-option input[type="radio"]:checked+label {
   color: #000;
 }

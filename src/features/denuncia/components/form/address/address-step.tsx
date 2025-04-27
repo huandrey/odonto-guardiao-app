@@ -1,11 +1,13 @@
 import React from 'react';
-import './address-step.css';
-import { validateAddressStep } from './address-step-validation';
+
 import { Address } from '../../../types/denuncia';
-import { CustomSelect } from '../../../../../shared/components/select';
-import { DenunciaController } from '../../../denuncia-controller';
 import { AddressController } from './address-controller';
+import { validateAddressStep } from './address-step-validation';
+import { DenunciaController } from '../../../denuncia-controller';
+import { CustomSelect } from '../../../../../shared/components/select';
 import { formatarCEP } from '../../../../../shared/utils/string-utils';
+
+import './address-step.css';
 
 interface ValidationErrors {
   cep?: string;
@@ -24,7 +26,7 @@ interface TouchedFields {
 interface AddressStepProps {
   address: Address;
   onChange: (address: Address) => void;
-  onValidationChange?: (isValid: boolean) => void; // Nova prop
+  onValidationChange?: (isValid: boolean) => void;
 }
 
 export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange, onValidationChange }) => {
@@ -82,7 +84,15 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange, onV
       <h2>Endereço da Vítima</h2>
       <br />
       <div className="form-group">
-        <label>CEP</label>
+        <div className="address-form-item">
+          <label>CEP</label>
+          <div className="tooltip-container-base">
+            <div className="info-icon-base"><span>i</span></div>
+            <div className="tooltip-base">
+              Caso a criança ou adolescente resida em outro município que não seja Campina Grande, deve-se informar o CEP do endereço onde a violência ocorreu, em Campina Grande.
+            </div>
+          </div>
+        </div>
         <input
           type="text"
           value={address.cep || ''}

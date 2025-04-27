@@ -5,6 +5,21 @@
   font-family: "Inter", 'sans-serif';
 }
 
+.form-group>.address-form-item label {
+  margin-bottom: 0px;
+}
+
+.address-form-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.address-form-item label {
+  margin-bottom: 0;
+}
+
 .address-step h2 {
   font-size: 2rem;
 }
@@ -12,5 +27,75 @@
 @media (max-width: 640px) {
   .address-step h2 {
     font-size: 1.5rem;
+  }
+}
+
+/* Tooltip Styles */
+.tooltip-container-base {
+  position: relative;
+}
+
+.info-icon-base {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 2px solid var(--gray-300);
+  color: var(--gray-300);
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .4s ease;
+}
+
+.info-icon-base:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+.tooltip-base {
+  visibility: hidden;
+  position: absolute;
+  top: 1rem;
+  background-color: #FBC02D;
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  width: 250px;
+  z-index: 10;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.2s ease;
+
+  font-weight: 600;
+}
+
+.tooltip-container-base:hover .tooltip-base {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Styles */
+@media (max-width: 640px) {
+
+  .injuries-step h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-card {
+    padding: 1.25rem;
+  }
+
+  .tooltip {
+    width: 200px;
+    right: -20px;
   }
 }

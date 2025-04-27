@@ -20,7 +20,7 @@
 }
 
 .form-card {
-  background-color: #f9fafb;
+  background-color: var(--gray-100);
   border-radius: 12px;
   padding: 1.5rem;
   transition: all 0.2s ease;
@@ -164,9 +164,6 @@ input:checked+.slider:before {
   }
 }
 
-
-
-/* Ajuste nos seletores do LocationSelector */
 .location-checkboxes label {
   position: relative;
   display: flex;
@@ -183,7 +180,6 @@ input:checked+.slider:before {
   height: 0;
 }
 
-/* Ajuste no pseudo-elemento before */
 .location-checkboxes label span::before {
   content: '';
   width: 18px;
@@ -195,23 +191,19 @@ input:checked+.slider:before {
   display: inline-block;
 }
 
-/* Ajuste no pseudo-elemento after */
 .location-checkboxes label span::after {
   content: '';
   position: absolute;
   left: 8px;
-  /* Ajustado para alinhar corretamente */
   top: 50%;
   width: 5px;
   height: 10px;
   border: solid white;
-  /* Mudado para white para melhor visibilidade */
   border-width: 0 2px 2px 0;
   transform: translateY(-65%) rotate(45deg) scale(0);
   transition: transform 0.2s ease;
 }
 
-/* Ajuste nos estados checked */
 .location-checkboxes input[type="checkbox"]:checked+span::before {
   background-color: #F4B63C;
   border-color: #F4B63C;
@@ -227,7 +219,6 @@ input:checked+.slider:before {
   align-items: center;
 }
 
-/* Ajuste no tamanho do texto */
 .location-text {
   font-size: 0.95rem;
   color: #374151;

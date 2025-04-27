@@ -1,4 +1,3 @@
-// src/hooks/use-steps-validation.ts
 import { useState } from 'react';
 
 export type StepValidation = {
@@ -12,7 +11,7 @@ const initialStepsValidation: StepValidation = {
   4: true,
   5: true,
   6: true,
-  7: true, // Summary step is always valid
+  7: true,
 };
 
 export const useStepsValidation = () => {

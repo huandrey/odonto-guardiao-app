@@ -6,7 +6,7 @@ import { VictimData } from '../../../types/denuncia';
 interface VictimDataStepProps {
   victimData: VictimData;
   onChange: (victimData: VictimData) => void;
-  onValidationChange?: (isValid: boolean) => void; // Nova prop
+  onValidationChange?: (isValid: boolean) => void;
 }
 
 export const VictimDataStep: React.FC<VictimDataStepProps> = ({
@@ -31,7 +31,7 @@ export const VictimDataStep: React.FC<VictimDataStepProps> = ({
   React.useEffect(() => {
     const validationErrors = validateVictimDataStep(victimData);
     const isValid = Object.keys(validationErrors).length === 0;
-    
+
     setErrors(validationErrors);
     onValidationChange?.(isValid);
   }, [victimData]);

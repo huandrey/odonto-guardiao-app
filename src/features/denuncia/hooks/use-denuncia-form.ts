@@ -3,11 +3,8 @@ import { Complaint } from '../types/denuncia';
 
 const STORAGE_KEY = 'encrypted_complaint_data';
 
-// Função para criptografar dados
 const encryptData = (data: any): string => {
   try {
-    // Implementação simples de criptografia usando Base64
-    // Em produção, considere usar uma biblioteca como CryptoJS para criptografia AES
     const jsonString = JSON.stringify(data);
     return btoa(jsonString); // Base64 encoding
   } catch (error) {
@@ -16,11 +13,9 @@ const encryptData = (data: any): string => {
   }
 };
 
-// Função para descriptografar dados
 const decryptData = (encryptedData: string): any => {
   try {
-    // Descriptografia simples usando Base64
-    const jsonString = atob(encryptedData); // Base64 decoding
+    const jsonString = atob(encryptedData);
     return JSON.parse(jsonString);
   } catch (error) {
     console.error('Erro ao descriptografar dados:', error);
@@ -81,10 +76,6 @@ export const useComplaintForm = () => {
     } catch (error) {
       console.error('Erro ao salvar dados no localStorage:', error);
     }
-
-    const storedData = localStorage.getItem(STORAGE_KEY);
-
-    console.log(decryptData(storedData || ''))
   }, [complaint]);
 
   const updateComplaint = (field: keyof Complaint, value: unknown) => {
@@ -96,60 +87,58 @@ export const useComplaintForm = () => {
 
   const hasExistingComplaintData = (): boolean => {
     try {
-      // Recupera os dados do localStorage
       const storedData = localStorage.getItem(STORAGE_KEY);
       if (!storedData) return false;
-      
-      // Descriptografa os dados
+
       const jsonString = atob(storedData); // Base64 decoding
       const complaint = JSON.parse(jsonString) as Complaint;
-      
+
       // Verifica se tem algum campo preenchido em address
       if (complaint.address) {
         if (complaint.address.hasNoInformation ||
-            complaint.address.cep ||
-            complaint.address.street ||
-            complaint.address.number ||
-            complaint.address.neighborhood ||
-            complaint.address.councilRegion) {
+          complaint.address.cep ||
+          complaint.address.street ||
+          complaint.address.number ||
+          complaint.address.neighborhood ||
+          complaint.address.councilRegion) {
           return true;
         }
       }
-      
+
       // Verifica se tem algum campo preenchido em victimData
       if (complaint.victimData) {
         if (complaint.victimData.name ||
-            complaint.victimData.birthDate ||
-            complaint.victimData.gender !== 'other') {
+          complaint.victimData.birthDate ||
+          complaint.victimData.gender !== 'other') {
           return true;
         }
       }
-      
+
       // Verifica se tem algum campo preenchido em caseDetails
       if (complaint.caseDetails) {
         if (complaint.caseDetails.hasAggressionSigns ||
-            complaint.caseDetails.hasEyeInjury ||
-            complaint.caseDetails.hasBruises ||
-            complaint.caseDetails.hasAbrasion ||
-            complaint.caseDetails.hasLaceration ||
-            complaint.caseDetails.hasBurns ||
-            complaint.caseDetails.hasBiteMarks) {
+          complaint.caseDetails.hasEyeInjury ||
+          complaint.caseDetails.hasBruises ||
+          complaint.caseDetails.hasAbrasion ||
+          complaint.caseDetails.hasLaceration ||
+          complaint.caseDetails.hasBurns ||
+          complaint.caseDetails.hasBiteMarks) {
           return true;
         }
       }
-      
+
       // Verifica se tem dados adicionais
       if (complaint.additionalInfo && Object.keys(complaint.additionalInfo).length > 0) {
         return true;
       }
-      
+
       return false;
     } catch (error) {
       console.error('Erro ao verificar dados existentes:', error);
       return false;
     }
   };
-  
+
 
   const clearStoredData = () => {
     try {
