@@ -33,6 +33,10 @@ export const FAQ = () => {
     {
       question: "Preciso ter certeza absoluta para fazer uma denúncia?",
       answer: "Não é necessário ter certeza absoluta. Se houver suspeita fundamentada, é importante fazer a denúncia. Os órgãos competentes são responsáveis por investigar e confirmar as suspeitas."
+    },
+    {
+      question: "Por que não há detalhamento das partes do corpo na parte ‘Violência Física’?",
+      answer: "Porque este aplicativo trata-se de um meio para denúncia de maus-tratos infanto-juvenil, e não de um recurso para a realização de perícia das lesões observadas."
     }
   ];
 
@@ -43,13 +47,13 @@ export const FAQ = () => {
   return (
     <div className="faq-container">
       <h2 className="faq-title">Perguntas Frequentes</h2>
-      
+
       {faqItems.map((item, index) => (
-        <div 
+        <div
           key={index}
           className={`faq-item ${activeIndex === index ? 'active' : ''}`}
         >
-          <div 
+          <div
             className="faq-question"
             onClick={() => toggleFAQ(index)}
             role="button"

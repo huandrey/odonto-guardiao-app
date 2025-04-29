@@ -1,4 +1,3 @@
-
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
@@ -51,7 +50,6 @@
   cursor: not-allowed;
 }
 
-/* Opcional: alterar o estilo do hover quando desabilitado */
 .button:disabled:hover {
-  transform: none; /* caso tenha alguma transformação no hover */
+  transform: none;
 }

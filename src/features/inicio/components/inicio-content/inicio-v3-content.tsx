@@ -27,12 +27,12 @@ export const InicioV3Content = () => {
             e ajudar a proteger quem mais precisa.
           </p>
           <div className="cta-button-container">
-            <a className="cta-button" onClick={() => navigation('/denuncia')}>
+            <button className="cta-button" onClick={() => navigation('/denuncia')}>
               Realizar Denúncia
-            </a>
-            <a className="cta-button outline" onClick={() => navigation('/documentos-norteadores')}>
+            </button>
+            <button className="cta-button outline" onClick={() => navigation('/documentos-norteadores')}>
               Documentos Norteadores
-            </a>
+            </button>
           </div>
         </div>
 

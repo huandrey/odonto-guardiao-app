@@ -9,6 +9,9 @@ export const DADOS_VITIMA_VALIDATION_MESSAGES = {
   INVALID_NOME_LENGTH: 'Nome deve ter pelo menos 3 caracteres',
   INVALID_BIRTH_DATE: 'Data de nascimento é obrigatória',
   INVALID_FUTURE_BIRTH_DATE: 'Data de nascimento não pode ser futura',
+  INVALID_BIRTH_DATE_DAY: 'Dia inválido',
+  INVALID_BIRTH_DATE_MONTH: 'Mês inválido',
+  INVALID_BIRTH_DATE_YEAR: 'Ano inválido',
   INVALID_GENERO_EMPTY: 'Gênero é obrigatório',
   INVALID_GENERO: 'Gênero inválido',
 } as const;
@@ -25,6 +28,30 @@ export const validateVictimDataStep = (victimData: VictimDataValidationErrors): 
   if (!victimData.birthDate) {
     errors.birthDate = DADOS_VITIMA_VALIDATION_MESSAGES.INVALID_BIRTH_DATE;
   } else {
+
+    if (victimData.birthDate.length === 10) {
+      const [dayStr, monthStr, yearStr] = victimData.birthDate.split('/');
+      const day = parseInt(dayStr, 10);
+      const month = parseInt(monthStr, 10);
+      const year = parseInt(yearStr, 10);
+      const currentYear = new Date().getFullYear();
+
+      if (day > 31 || day === 0) {
+        errors.birthDate = DADOS_VITIMA_VALIDATION_MESSAGES.INVALID_BIRTH_DATE_DAY;
+        console.error('Dia inválido:', day);
+      }
+
+      if (month > 12 || month === 0) {
+        errors.birthDate = DADOS_VITIMA_VALIDATION_MESSAGES.INVALID_BIRTH_DATE_MONTH;
+        console.error('Mês inválido:', month);
+      }
+
+      if (year > currentYear || year === 0) {
+        errors.birthDate = DADOS_VITIMA_VALIDATION_MESSAGES.INVALID_BIRTH_DATE_YEAR;
+        console.error('Ano inválido:', year);
+      }
+    }
+    
     const birthDate = new Date(victimData.birthDate);
     const today = new Date();
     

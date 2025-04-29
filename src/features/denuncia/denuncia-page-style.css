@@ -27,7 +27,8 @@ textarea {
   background-color: #fff;
   color: #111;
 }
-/* 
+
+/*
 .form-group select {
   padding: 0.5rem;
 } */
@@ -35,12 +36,6 @@ textarea {
 #victimName {
   width: 100%;
   padding: 12px;
-}
-
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
 }
 
 .checkbox-group {

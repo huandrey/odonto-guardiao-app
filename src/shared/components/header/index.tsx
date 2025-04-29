@@ -8,6 +8,7 @@ interface HeaderRootProps {
   className?: string;
   isMenuOpen?: boolean;
   onMenuClick?: () => void;
+  error?: boolean;
 }
 
 export const HeaderRoot = ({ children, className = '', isMenuOpen, onMenuClick }: HeaderRootProps) => {

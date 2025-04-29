@@ -1,17 +1,25 @@
 import React from 'react';
-import './lesoes.css';
 import { CaseDetails, InjuryLocation } from '../../../types/denuncia';
 
 interface VisibleInjuriesStepProps {
   caseDetails: CaseDetails;
   onChange: (caseDetails: CaseDetails) => void;
-  onValidationChange?: (isValid: boolean) => void; // Nova prop
+  onValidationChange?: (isValid: boolean) => void;
+}
+
+type Locations = "Cabeça" | "Face" | "Pescoço"
+type Location = Record<Locations, boolean>
+
+const defaultLocation: Location = {
+  "Cabeça": false,
+  "Face": false,
+  "Pescoço": false
 }
 
 const LocationSelector: React.FC<{
   location?: InjuryLocation;
   onChange: (location: InjuryLocation) => void;
-}> = ({ location = { "Cabeça": false, "Face": false, "Pescoço": false }, onChange }) => (
+}> = ({ location = defaultLocation, onChange }) => (
   <div className="location-selector">
     <p>Selecione a localização:</p>
     <div className="location-checkboxes">
@@ -26,46 +34,36 @@ const LocationSelector: React.FC<{
         </label>
       ))}
     </div>
+    {/* TODO: Criar input para Outro aqui! */}
   </div>
 );
 
-export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
-  caseDetails,
-  onChange,
-}) => {
+export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({ caseDetails, onChange }) => {
   const updateCaseDetails = (updates: Partial<CaseDetails>) => {
     onChange({
       ...caseDetails,
       ...updates
     });
   };
-  
-  const handleBooleanChange =
-    (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const isYes = e.target.checked;
-      const updates: Partial<CaseDetails> = { [field]: isYes };
 
-      if (!isYes) {
-        updates[`${field}Location` as keyof CaseDetails] = undefined;
-      }
+  const handleBooleanChange = (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const isChecked = e.target.checked;
+    const updates: Partial<CaseDetails> = { [field]: isChecked };
 
-      updateCaseDetails(updates);
-    };
+    if (!isChecked) {
+      updates[`${field}Location` as keyof CaseDetails] = undefined;
+    }
 
-    // const handleBooleanChange =
-    // (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    //   const isYes = e.target.checked;
-    //   onChange({ ...caseDetails, [field]: isYes });
-    // };
-
+    updateCaseDetails(updates);
+  };
 
   return (
     <div className="injuries-step">
       <h2>Lesões Visíveis</h2>
       <div className="questions-container">
-      <div className="form-card">
+        <div className="form-card">
           <div className="form-card-header">
-            <span className="question-text">Sinais de Agressão Física?</span>
+            <span className="question-text">Sinais de Violência Física?</span>
           </div>
           <div className="form-card-content">
             <label className="switch">
@@ -76,6 +74,15 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
               />
               <span className="slider round"></span>
             </label>
+
+            {/* {caseDetails.hasAggressionSigns && (
+              <LocationSelector
+                location={caseDetails.agressionSignsLocation}
+                onChange={(location) =>
+                  onChange({ ...caseDetails, agressionSignsLocation: location })
+                }
+              />
+            )} */}
           </div>
         </div>
 
@@ -172,3 +179,15 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({
     </div>
   );
 };
+
+
+
+{/* <SwitchQuestion
+  title='Hematoma?'
+  locationName='bruisesLocation'
+  onChangeLocation={updateCaseDetails}
+  caseDetails={caseDetails}
+  checked={caseDetails.hasBruises}
+  onChange={() => handleBooleanChange('hasBruises')}
+  tooltip='Acúmulo de sangue em um tecido devido à lesão de vasos sanguíneos.'
+/> */}

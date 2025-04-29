@@ -66,13 +66,6 @@
   font-weight: normal;
 }
 
-/* Estilização específica para o input type="date" */
-/* .form-group input[type="date"] {
-  appearance: none;
-  background-color: white;
-  cursor: pointer;
-} */
-
 .form-group input[type="date"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   padding: 0.2rem;
@@ -94,15 +87,12 @@
   }
 }
 
-.error {
-  border-color: #dc2626 !important;
-}
-
 .error-message {
   color: #dc2626;
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
+
 .radio-group {
   display: flex;
   flex-direction: column;
@@ -150,7 +140,7 @@
   box-sizing: border-box;
 }
 
-.radio-option input[type="radio"]:checked + label::before {
+.radio-option input[type="radio"]:checked+label::before {
   border-color: #FBC02D;
 }
 
@@ -166,12 +156,12 @@
   transition: transform 0.2s ease;
 }
 
-.radio-option input[type="radio"]:checked + label::after {
+.radio-option input[type="radio"]:checked+label::after {
   transform: scale(1);
   animation: radioSelect 0.2s ease;
 }
 
-.radio-option input[type="radio"]:focus + label::before {
+.radio-option input[type="radio"]:focus+label::before {
   box-shadow: 0 0 0 4px rgba(251, 192, 45, 0.2);
 }
 
@@ -179,15 +169,16 @@
   0% {
     transform: scale(0);
   }
+
   90% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }
 }
 
-/* Opcional: Se quiser que o texto também seja realçado quando selecionado */
-.radio-option input[type="radio"]:checked + label {
+.radio-option input[type="radio"]:checked+label {
   color: #000;
 }

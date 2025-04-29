@@ -61,7 +61,7 @@ nav {
   display: block;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 7rem 2rem;
+  padding: 7rem 1rem;
 }
 
 .legaldoc-hero-section {
@@ -113,7 +113,7 @@ nav {
 
 .legaldoc-document-icon {
   background-color: #f8f9fc;
-  padding: 2rem;
+  /* padding: 2rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -233,6 +233,9 @@ nav {
 
 /* Estilos para Tablet */
 @media (max-width: 968px) {
+  .legaldoc-main-content {
+    padding: 7rem 2rem;
+  }
   .legaldoc-footer-content {
     grid-template-columns: repeat(2, 1fr);
   }
