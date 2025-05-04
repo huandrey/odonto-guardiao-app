@@ -1,19 +1,15 @@
 import React from 'react'
 import { CaseDetails } from '../../../../types/denuncia'
 
-import './lesoes.css'
-import { SelecionadorLocalLesaoFisica } from './components/selecionador-lesao-fisica'
+import './violencia-psicologica.css'
 
-interface SevereInjuriesStepProps {
+interface ViolenciaPsicologicaStepProps {
   caseDetails: CaseDetails
   onChange: (caseDetails: CaseDetails) => void
   onValidationChange?: (isValid: boolean) => void
 }
 
-export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
-  caseDetails,
-  onChange,
-}) => {
+export const ViolenciaPsicologicaStep: React.FC<ViolenciaPsicologicaStepProps> = ({ caseDetails, onChange }) => {
   const handleBooleanChange = (field: keyof CaseDetails) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
     const update: Partial<CaseDetails> = { [field]: isChecked };
@@ -27,9 +23,38 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
 
   return (
     <div className="injuries-step">
-      <h2>Outras Lesões Físicas</h2>
       <div className="questions-container">
         <div className="form-card">
+          <div className="form-card-header">
+            <span className="question-text">Sinais de Violência Psicológica?</span>
+            <div className="tooltip-container">
+              <span className="info-icon">i</span>
+              <div className="tooltip">
+                Criança ou adolescente com comportamento retraído, nervoso ou assustado de forma incomum.
+              </div>
+            </div>
+          </div>
+          <div className="form-card-content">
+            <label className="switch">
+              <input
+                type="checkbox"
+                checked={caseDetails.psychologicalViolenceSigns}
+                onChange={handleBooleanChange('psychologicalViolenceSigns')}
+              />
+              <span className="slider round"></span>
+            </label>
+
+            {/* {caseDetails.hasAggressionSigns && (
+              <LocationSelector
+                location={caseDetails.agressionSignsLocation}
+                onChange={(location) =>
+                  onChange({ ...caseDetails, agressionSignsLocation: location })
+                }
+              />
+            )} */}
+          </div>
+        </div>
+        {/* <div className="form-card">
           <div className="form-card-header">
             <span className="question-text">Queimadura?</span>
             <div className="tooltip-container">
@@ -97,7 +122,7 @@ export const SevereInjuriesStep: React.FC<SevereInjuriesStepProps> = ({
               <span className="slider round"></span>
             </label>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

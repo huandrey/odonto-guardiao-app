@@ -95,8 +95,8 @@ export const ConfirmacaoDenuncia = () => {
 
         <div className="contact-info">
           Em caso de dúvidas, entre em contato com o Conselho Tutelar da sua região:<br />
-          <strong>Conselho Tutelar Norte</strong><br />
-          Telefone: (83) 2017-0062
+          <strong>{state.complaint.address?.councilRegion?.nome || "Não identificado"}</strong><br />
+          Telefone: {state.complaint.address?.councilRegion?.contato || "Não identificado"}
         </div>
       </div>
 

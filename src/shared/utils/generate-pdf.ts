@@ -5,7 +5,8 @@ import { UserOptions } from "jspdf-autotable";
 const LOCATION_TRANSLATIONS: Record<string, string> = {
   "Cabeça": 'Cabeça',
   Face: 'Face',
-  "Pescoço": 'Pescoço'
+  "Pescoço": 'Pescoço',
+  "Outro": 'Outro'
 };
 
 export const generatePDF = (complaint: Complaint) => {
@@ -14,9 +15,10 @@ export const generatePDF = (complaint: Complaint) => {
 
   // Cabeçalho
   doc.setFontSize(20);
-  doc.text("Relatório de Denúncia", 105, 20, { align: "center" });
+  doc.text(`Relatório de Denúncia`, 105, 20, { align: "center" });
+  doc.setFontSize(16);
+  doc.text(`${complaint.address.councilRegion?.nome}`, 105, 30, { align: "center"});
   doc.setFontSize(12);
-  doc.text(`Data do relatório: ${new Date().toLocaleDateString('pt-BR')}`, 20, 30);
 
   // Função auxiliar para criar seções
   const addSection = (title: string, startY: number): number => {
@@ -40,6 +42,7 @@ export const generatePDF = (complaint: Complaint) => {
     return selectedLocations.length > 0 ? selectedLocations.join(', ') : 'Não se aplica';
   };
 
+  
   // Dados do Local
   let yPos = addSection("1. Dados do Local", 45);
   if (complaint.address.hasNoInformation) {
@@ -82,6 +85,10 @@ export const generatePDF = (complaint: Complaint) => {
     ['Queimadura', complaint.caseDetails.hasBurns ? 'Sim' : '-', translateLocations(complaint.caseDetails.burnsLocation)],
 
     ['Marca de Mordida', complaint.caseDetails.hasBiteMarks ? 'Sim' : '-', translateLocations(complaint.caseDetails.biteMarksLocation)],
+
+    ['Sinais de Negligência Familiar', complaint.caseDetails.neglectSigns ? 'Sim' : '-', 'Não se aplica'],
+
+    ['Sinais de Violência Psicológica', complaint.caseDetails.psychologicalViolenceSigns ? 'Sim' : '-', 'Não se aplica'],
   ];
 
   // Gerar tabela
@@ -129,8 +136,9 @@ export const generatePDF = (complaint: Complaint) => {
   for (let i = 1; i <= pageCount; i++) {
     doc.setPage(i);
     doc.setFontSize(10);
+
     doc.text(
-      `Powered by OdontoGuardião`,
+      `Powered by OdontoGuardião, ${new Date().toLocaleDateString('pt-BR')}`,
       doc.internal.pageSize.width / 2,
       doc.internal.pageSize.height - 10,
       { align: "center" }

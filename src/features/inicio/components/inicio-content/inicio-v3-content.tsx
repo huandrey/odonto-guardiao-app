@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { Header } from '../../../../shared/components/header/components'
 import { useNavigate } from 'react-router-dom';
 import { FAQ } from '../faq';
@@ -8,6 +9,21 @@ import { Footer } from '../../../../shared/components/footer';
 
 export const InicioV3Content = () => {
   const navigation = useNavigate();
+
+  const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const goToDenunciaForm = () => {
+    navigation('/denuncia');
+  }
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   return (
     <div className="container">
@@ -27,7 +43,7 @@ export const InicioV3Content = () => {
             e ajudar a proteger quem mais precisa.
           </p>
           <div className="cta-button-container">
-            <button className="cta-button" onClick={() => navigation('/denuncia')}>
+            <button className="cta-button" onClick={openModal}>
               Realizar Denúncia
             </button>
             <button className="cta-button outline" onClick={() => navigation('/documentos-norteadores')}>
@@ -43,6 +59,26 @@ export const InicioV3Content = () => {
       </main>
       <FAQ />
       <Footer pageTitle='OdontoGuardião' pageDescription='Plataforma dedicada ao combate à violência infantojuvenil através do olhar atento dos profissionais da Odontologia.'/>
+    
+      {showModal && (
+        <div className="feedback-modal-overlay">
+          <div className="feedback-modal" ref={modalRef}>
+            <button className="close-modal" onClick={closeModal}>×</button>
+            <div className="feedback-modal-content">
+              <h2>Sua identidade está protegida</h2>
+              <p>Fique tranquilo(a), sua denúncia será totalmente anônima. Nosso compromisso é garantir sua segurança enquanto ajudamos a proteger quem mais precisa.</p>
+              <div className="feedback-buttons">
+                <button className="button button-primary" onClick={goToDenunciaForm}>
+                  Prosseguir com a denúncia
+                </button>
+                <button className="button button-secondary" onClick={closeModal}>
+                  Voltar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

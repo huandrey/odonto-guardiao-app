@@ -10,7 +10,8 @@ export const SelecionadorLocalLesaoFisica: React.FC<{
   location = {
     "Cabeça": false,
     "Face": false,
-    "Pescoço": false
+    "Pescoço": false,
+    "Outro": false
   },
   onChange,
 }) => (

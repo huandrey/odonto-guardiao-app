@@ -23,6 +23,7 @@ export enum BodyPart {
   "Cabeça" = 'Cabeça',
   Face = 'Face',
   "Pescoço" = 'Pescoço',
+  "Outro" = 'Outro'
 }
 
 export type InjuryLocation = {
@@ -46,6 +47,8 @@ export interface CaseDetails {
   burnsLocation?: InjuryLocation;
   hasBiteMarks: boolean;
   biteMarksLocation?: InjuryLocation;
+  neglectSigns: boolean;
+  psychologicalViolenceSigns: boolean;
 }
 
 export interface AdditionalInfo {
