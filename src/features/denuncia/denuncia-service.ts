@@ -16,7 +16,7 @@ export class DenunciaService {
       "setor": "C.T 1 - Norte",
       "nome": "Conselho Tutelar Norte",
       "contato": [
-        "83 2017-0062"
+        "83 2017-0062 | 83 2017-0125"
       ],
       "bairros": [
         "Alto Branco",
@@ -42,7 +42,7 @@ export class DenunciaService {
       "setor": "C.T 2 - Sul",
       "nome": "Conselho Tutelar Sul",
       "contato": [
-        "83 2017-0059"
+        "83 2017-0059 | 83 2017-0122"
       ],
       "bairros": [
         "Acácio Figueiredo",
@@ -79,7 +79,7 @@ export class DenunciaService {
       "setor": "C.T 3 - Leste",
       "nome": "Conselho Tutelar Leste",
       "contato": [
-        "83 2017-0061"
+        "83 2017-0061 | 83 2017-0124"
       ],
       "bairros": [
         "Antiga Cachoeira",
@@ -122,7 +122,7 @@ export class DenunciaService {
       "setor": "C.T 4 - Oeste",
       "nome": "Conselho Tutelar Oeste",
       "contato": [
-        "83 2017-0060"
+        "83 2017-0060 | 83 2017-0123"
       ],
       "bairros": [
         "Bodocongó",

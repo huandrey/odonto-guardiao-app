@@ -14,8 +14,6 @@ export const ExtraInfoStep: React.FC<ExtraInfoStepProps> = ({
 }) => {
   return (
     <div className="additional-info-step">
-      <h2>Informações Adicionais</h2>
-
       <div className="info-card">
         <p className="info-description">
           Você tem mais detalhes sobre o caso? Toda informação é relevante.

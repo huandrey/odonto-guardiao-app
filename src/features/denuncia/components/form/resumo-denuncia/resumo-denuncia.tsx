@@ -20,12 +20,15 @@ const FIELD_TRANSLATIONS: Record<keyof CaseDetails, string> = {
   burnsLocation: 'Localização da Queimadura',
   hasBiteMarks: 'Marca de Mordida',
   biteMarksLocation: 'Localização da Marca de Mordida',
+  neglectSigns: 'Sinais de Negligência Familiar',
+  psychologicalViolenceSigns: 'Sinais de Violência Psicológica'
 };
 
 const LOCATION_TRANSLATIONS: Record<string, string> = {
   "Cabeça": 'Cabeça',
   Face: 'Face',
-  "Pescoço": 'Pescoço'
+  "Pescoço": 'Pescoço',
+  "Outro": 'Outro'
 };
 
 export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint }) => {
@@ -35,8 +38,6 @@ export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint })
 
   return (
     <div className="complaint-summary">
-      <h2>Resumo da Denúncia</h2>
-
       <div className="summary-sections">
         <div className="summary-section">
           <h3>Endereço da Vítima</h3>
@@ -83,8 +84,8 @@ export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint })
                 return (
                   <div key={key} className="location-details">
                     <p className="location-title">{translatedKey}:</p>
-                    {Object.entries(value).map(([loc, checked]) => (
-                      <p key={loc} className="location-item">
+                    {Object.entries(value).map(([loc, checked], index) => (
+                      <p key={`${loc}-${checked}-${index}`} className="location-item">
                         - {LOCATION_TRANSLATIONS[loc] || loc}: {checked ? 'Sim' : '-'}
                       </p>
                     ))}

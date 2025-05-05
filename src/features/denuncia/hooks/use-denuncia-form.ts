@@ -13,7 +13,7 @@ const encryptData = (data: any): string => {
   }
 };
 
-const decryptData = (encryptedData: string): any => {
+const decryptData = (encryptedData: string) => {
   try {
     const jsonString = atob(encryptedData);
     return JSON.parse(jsonString);
@@ -45,6 +45,8 @@ const initialComplaint: Complaint = {
     hasLaceration: false,
     hasBurns: false,
     hasBiteMarks: false,
+    neglectSigns: false,
+    psychologicalViolenceSigns: false,
   },
   additionalInfo: {}
 };
@@ -122,7 +124,9 @@ export const useComplaintForm = () => {
           complaint.caseDetails.hasAbrasion ||
           complaint.caseDetails.hasLaceration ||
           complaint.caseDetails.hasBurns ||
-          complaint.caseDetails.hasBiteMarks) {
+          complaint.caseDetails.hasBiteMarks ||
+          complaint.caseDetails.neglectSigns ||
+          complaint.caseDetails.psychologicalViolenceSigns) {
           return true;
         }
       }

@@ -21,9 +21,10 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
     { number: 1, label: "Endereço" },
     { number: 2, label: "Dados" },
     { number: 3, label: "Lesões Visíveis" },
-    { number: 4, label: "Outras Lesões Físicas" },
-    { number: 5, label: "Adicionais" },
-    { number: 6, label: "Resumo" }
+    { number: 4, label: "Negligência" },
+    { number: 5, label: "Violência Psicológica" },
+    { number: 6, label: "Adicionais" },
+    { number: 7, label: "Resumo" }
   ];
 
   const isStepClickable = (stepNumber: number) => {
@@ -58,7 +59,6 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           />
         ))}
       </div>
-
     </div>
   );
 };

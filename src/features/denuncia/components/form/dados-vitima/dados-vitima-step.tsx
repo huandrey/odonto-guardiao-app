@@ -38,8 +38,6 @@ export const VictimDataStep: React.FC<VictimDataStepProps> = ({
 
   return (
     <div className="victim-data-step">
-      <h2>Dados da Vítima</h2>
-
       <div className="form-group">
         <label htmlFor="name">Nome da Vítima</label>
         <input

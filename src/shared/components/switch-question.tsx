@@ -1,4 +1,4 @@
-import { SelecionadorLocalLesaoFisica } from "../../features/denuncia/components/form/detalhes-caso-step/outras-lesoes-fisicas/components/selecionador-lesao-fisica";
+import { SelecionadorLocalLesaoFisica } from "../../features/denuncia/components/form/detalhes-caso-step/negligencia/components/selecionador-lesao-fisica";
 import { CaseDetails } from "../../features/denuncia/types/denuncia";
 
 export const SwitchQuestion = ({
@@ -25,11 +25,11 @@ export const SwitchQuestion = ({
         {
           tooltip && (
             <div className="tooltip-container">
-            <span className="info-icon">i</span>
-            <div className="tooltip">
-              {tooltip}
+              <span className="info-icon">i</span>
+              <div className="tooltip">
+                {tooltip}
+              </div>
             </div>
-          </div>
           )
         }
       </div>

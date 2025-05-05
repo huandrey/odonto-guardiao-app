@@ -81,8 +81,6 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange, onV
 
   return (
     <div className="address-step">
-      <h2>Endereço da Vítima</h2>
-      <br />
       <div className="form-group">
         <div className="address-form-item">
           <label>CEP</label>
