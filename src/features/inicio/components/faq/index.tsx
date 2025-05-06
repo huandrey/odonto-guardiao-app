@@ -12,7 +12,7 @@ export const FAQ = () => {
   const faqItems: FAQItem[] = [
     {
       question: "Como faço para registrar uma denúncia?",
-      answer: "Para registrar uma denúncia, clique no botão 'Realizar Denúncia' no topo da página. Não se preocupe, todas as denúncias são tratadas com total sigilo."
+      answer: 'Para registrar uma denúncia, clique no botão "Realizar Denúncia" no topo da página. Não se preocupe, todas as denúncias são tratadas com total sigilo.'
     },
     {
       question: "Minha identidade será mantida em sigilo?",
