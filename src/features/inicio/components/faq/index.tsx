@@ -35,7 +35,7 @@ export const FAQ = () => {
       answer: "Não é necessário ter certeza absoluta. Se houver suspeita fundamentada, é importante fazer a denúncia. Os órgãos competentes são responsáveis por investigar e confirmar as suspeitas."
     },
     {
-      question: "Por que não há detalhamento das partes do corpo na parte ‘Violência Física’?",
+      question: 'Por que não há detalhamento das partes do corpo na parte "Violência Física"?',
       answer: "Porque este aplicativo trata-se de um meio para denúncia de maus-tratos infanto-juvenil, e não de um recurso para a realização de perícia das lesões observadas."
     }
   ];
