@@ -13,6 +13,9 @@ RUN npm install
 # Copiar o resto dos arquivos do projeto
 COPY . .
 
+ARG VITE_BACKEND_URL
+ENV VITE_BACKEND_URL=$VITE_BACKEND_URL
+
 # Construir o projeto
 RUN npm run build
 
