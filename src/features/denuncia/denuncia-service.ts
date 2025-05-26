@@ -177,7 +177,6 @@ export class DenunciaService {
 
   async submitComplaint(complaint: Complaint, pdf: Blob, protocol: string): Promise<void> {
     const formData = new FormData();
-    console.log(complaint);
     formData.append('denuncia', protocol);
     formData.append('pdf', pdf, `denuncia_${protocol}.pdf`);
 
