@@ -55,10 +55,16 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange, onV
       addressController.getAddressByCep(address.cep)
         .then((addressData) => {
           if (addressData) {
+            const conselho = denunciaController.findConselhoByBairro(addressData.bairro);
             onChange({
               ...address,
               street: addressData.logradouro,
               neighborhood: addressData.bairro,
+              councilRegion: conselho ? {
+                setor: conselho.setor,
+                nome: conselho.nome,
+                contato: conselho.contato
+              } : undefined
             });
           }
         });
