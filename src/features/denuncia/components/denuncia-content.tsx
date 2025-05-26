@@ -10,7 +10,7 @@ import { ProgressBar } from './progress-bar';
 import { StepsRenderer } from './form/steps-renderer';
 import { NavigationInferiorControl } from './navigation-inferior-control';
 import { FeedbackModal } from './modal_feedback';
-import { DenunciaState } from '../denuncia-controller';
+import { DenunciaController, DenunciaState } from '../denuncia-controller';
 import { Header } from '../../../shared/components/header/components';
 import { Step } from './progress-bar/components/step-indicator';
 import { Modal } from '../../inicio/components/modal';
@@ -29,7 +29,7 @@ export const ComplaintForm: React.FC = () => {
   const [submitState, setSubmitState] = useState<DenunciaState>({ status: 'idle' });
   const [modalVisible, setModalVisible] = React.useState(false)
 
-  // const denunciaController = new DenunciaController();
+  const denunciaController = new DenunciaController();
 
   const isNextButtonDisabled = !stepsValidation[currentStep];
 
@@ -41,11 +41,7 @@ export const ComplaintForm: React.FC = () => {
       setPdf(pdfBlob!);
 
       const protocol = `DEN-${new Date().getFullYear()}-${Math.floor(Math.random() * 1000000).toString().padStart(6, '0')}`;
-      // const result = await denunciaController.submitDenuncia(complaint, pdfBlob, protocol);
-      const result = {
-        status: 'success',
-        protocol: protocol
-      } as DenunciaState;
+      const result = await denunciaController.submitDenuncia(complaint, pdfBlob, protocol);
       setSubmitState(result);
 
       if (result.status === 'success' && result.protocol) {

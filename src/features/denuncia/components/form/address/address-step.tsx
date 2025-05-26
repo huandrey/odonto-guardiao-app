@@ -63,6 +63,7 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange, onV
               councilRegion: conselho ? {
                 setor: conselho.setor,
                 nome: conselho.nome,
+                regiao: conselho.regiao || undefined,
                 contato: conselho.contato
               } : undefined
             });
@@ -80,7 +81,8 @@ export const AddressStep: React.FC<AddressStepProps> = ({ address, onChange, onV
       councilRegion: conselho ? {
         setor: conselho.setor,
         nome: conselho.nome,
-        contato: conselho.contato
+        contato: conselho.contato,
+        regiao: conselho.regiao || undefined
       } : undefined
     });
   };

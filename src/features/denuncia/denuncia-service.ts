@@ -4,8 +4,14 @@ import axios from 'axios';
 interface CouncilRegion {
   setor: string;
   nome: string;
+  regiao: "norte" | "sul" | "leste" | "oeste";
   contato: string[];
   bairros: string[];
+}
+
+interface SubmitComplaintResponse {
+  message: string;
+  protocolo: string;
 }
 
 export class DenunciaService {
@@ -15,6 +21,7 @@ export class DenunciaService {
     {
       "setor": "C.T 1 - Norte",
       "nome": "Conselho Tutelar Norte",
+      "regiao": "norte",
       "contato": [
         "83 2017-0062 | 83 2017-0125"
       ],
@@ -41,6 +48,7 @@ export class DenunciaService {
     {
       "setor": "C.T 2 - Sul",
       "nome": "Conselho Tutelar Sul",
+      "regiao": "sul",
       "contato": [
         "83 2017-0059 | 83 2017-0122"
       ],
@@ -78,6 +86,7 @@ export class DenunciaService {
     {
       "setor": "C.T 3 - Leste",
       "nome": "Conselho Tutelar Leste",
+      "regiao": "leste",
       "contato": [
         "83 2017-0061 | 83 2017-0124"
       ],
@@ -121,6 +130,7 @@ export class DenunciaService {
     {
       "setor": "C.T 4 - Oeste",
       "nome": "Conselho Tutelar Oeste",
+      "regiao": "oeste",
       "contato": [
         "83 2017-0060 | 83 2017-0123"
       ],
@@ -175,11 +185,12 @@ export class DenunciaService {
     );
   };
 
-  async submitComplaint(complaint: Complaint, pdf: Blob, protocol: string): Promise<void> {
+  async submitComplaint(complaint: Complaint, pdf: Blob, protocol: string): Promise<SubmitComplaintResponse> {
     const formData = new FormData();
-    formData.append('denuncia', protocol);
+    formData.append('protocolo', protocol);
+    formData.append('regiao', complaint.address?.councilRegion?.regiao || '');
     formData.append('pdf', pdf, `denuncia_${protocol}.pdf`);
-
+    
     try {
       const response = await axios.post(
         `${this.API_URL}/denuncia`,
@@ -194,6 +205,8 @@ export class DenunciaService {
       if (response.status !== 200 && response.status !== 201) {
         throw new Error('Erro ao enviar denúncia');
       }
+
+      return response.data as SubmitComplaintResponse;
     } catch (error) {
       if (axios.isAxiosError(error)) {
         throw new Error(error.response?.data?.message || 'Erro ao enviar denúncia');

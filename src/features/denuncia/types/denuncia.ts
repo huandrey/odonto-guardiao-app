@@ -9,6 +9,7 @@ export interface Address {
   councilRegion?: {
     setor: string;
     nome: string;
+    regiao?: "norte" | "sul" | "leste" | "oeste";
     contato: string[];
   };
 }

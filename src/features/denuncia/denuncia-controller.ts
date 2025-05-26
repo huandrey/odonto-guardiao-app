@@ -10,6 +10,7 @@ export type DenunciaState = {
 interface CouncilRegion {
   setor: string;
   nome: string;
+  regiao: "norte" | "sul" | "leste" | "oeste";
   contato: string[];
   bairros: string[];
 }
@@ -23,10 +24,11 @@ export class DenunciaController {
 
   async submitDenuncia(complaint: Complaint, pdf: Blob, protocol: string): Promise<DenunciaState> {
     try {
-      await this.service.submitComplaint(complaint, pdf, protocol);
+      
+      const response = await this.service.submitComplaint(complaint, pdf, protocol);
       return {
         status: 'success',
-        protocol: protocol
+        protocol: response.protocolo
       };
     } catch (error) {
       console.error(error);
