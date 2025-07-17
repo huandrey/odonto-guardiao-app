@@ -32,10 +32,6 @@ const LOCATION_TRANSLATIONS: Record<string, string> = {
 };
 
 export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint }) => {
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('pt-BR');
-  };
-
   return (
     <div className="complaint-summary">
       <div className="summary-sections">
@@ -56,7 +52,7 @@ export const ComplaintSummary: React.FC<ComplaintSummaryProps> = ({ complaint })
         <div className="summary-section">
           <h3>Dados da Vítima</h3>
           <p><strong>Nome:</strong> {complaint.victimData.name}</p>
-          <p><strong>Data de Nascimento:</strong> {formatDate(complaint.victimData.birthDate)}</p>
+          <p><strong>Data de Nascimento:</strong> {complaint.victimData.birthDate}</p>
           <p><strong>Sexo:</strong> {
             complaint.victimData.gender === 'male' ? 'Masculino' :
               complaint.victimData.gender === 'female' ? 'Feminino' : 'Outro'
