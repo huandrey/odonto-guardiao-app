@@ -50,6 +50,7 @@ export interface CaseDetails {
   biteMarksLocation?: InjuryLocation;
   neglectSigns: boolean;
   psychologicalViolenceSigns: boolean;
+  otherField?: string;
 }
 
 export interface AdditionalInfo {

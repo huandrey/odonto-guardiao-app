@@ -34,7 +34,10 @@ export const StepsRenderer: React.FC<StepsRendererProps> = ({
     />,
     3: <VisibleInjuriesStep
       caseDetails={complaint.caseDetails}
-      onChange={(caseDetails) => onComplaintUpdate('caseDetails', caseDetails)}
+      onChange={(caseDetails) => {
+        console.log(caseDetails)
+        onComplaintUpdate('caseDetails', caseDetails)
+      }}
     />,
     4: <NegligenciaPsicologicaStep
       caseDetails={complaint.caseDetails}

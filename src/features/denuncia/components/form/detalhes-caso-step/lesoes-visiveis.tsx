@@ -36,7 +36,6 @@ const LocationSelector: React.FC<{
         </label>
       ))}
     </div>
-    {/* TODO: Criar input para Outro aqui! */}
   </div>
 );
 
@@ -202,6 +201,7 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({ caseDe
                 onChange={(location) =>
                   onChange({ ...caseDetails, burnsLocation: location })
                 }
+                addOtherField={(otherField: string) => onChange({ ...caseDetails, 'otherField': otherField })}
               />
             )}
           </div>
@@ -226,6 +226,7 @@ export const VisibleInjuriesStep: React.FC<VisibleInjuriesStepProps> = ({ caseDe
                 onChange={(location) =>
                   onChange({ ...caseDetails, biteMarksLocation: location })
                 }
+                addOtherField={(otherField: string) => onChange({ ...caseDetails, 'otherField': otherField })}
               />
             )}
           </div>
