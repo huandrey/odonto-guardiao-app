@@ -60,7 +60,7 @@ export const generatePDF = (complaint: Complaint) => {
   yPos = addSection("2. Dados da Vítima", yPos + 25);
   doc.text([
     `Nome: ${complaint.victimData.name}`,
-    `Data de Nascimento: ${new Date(complaint.victimData.birthDate).toLocaleDateString('pt-BR')}`,
+    `Data de Nascimento: ${complaint.victimData.birthDate}`,
     `Sexo: ${complaint.victimData.gender === 'male' ? 'Masculino' :
       complaint.victimData.gender === 'female' ? 'Feminino' : 'Outro'}`
   ], 20, yPos);
