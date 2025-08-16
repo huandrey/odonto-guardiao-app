@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# Odonto Guardião App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Odonto Guardião App é um projeto desenvolvido como parte do meu TCC (Trabalho de Conclusão de Curso). O objetivo deste projeto é melhorar a gestão de consultas odontológicas e a comunicação entre pacientes e clínicas. A aplicação oferece uma interface intuitiva e de fácil utilização tanto para pacientes quanto para administradores, facilitando o agendamento e o gerenciamento das clínicas.
 
-Currently, two official plugins are available:
+## Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** React 18, TypeScript, HTML5, CSS3
+- **Build Tool:** Vite
+- **Roteamento:** React Router DOM
+- **Formulários:** React Hook Form
+- **UI/UX:** Lucide React (ícones), Framer Motion (animações)
+- **HTTP Client:** Axios
+- **Geração de PDF:** jsPDF
+- **PWA:** Vite PWA Plugin
+- **Linting:** ESLint, TypeScript ESLint
+- **Containerização:** Docker
+- **Servidor Web:** Nginx (produção)
 
-## Expanding the ESLint configuration
+## Como Executar
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone o Repositório:**
+   ```bash
+   git clone https://github.com/huandrey/odonto-guardiao-app.git
+   cd odonto-guardiao-app
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. **Instale as Dependências:**
+   ```bash
+   npm install
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+3. **Configure as Variáveis de Ambiente:**
+   - Crie um arquivo `.env` baseado no arquivo `.env-example` e configure as variáveis conforme necessário:
+   ```bash
+   cp .env-example .env
+   ```
+   - Edite o arquivo `.env` e defina a URL do backend:
+   ```
+   VITE_BACKEND_URL=http://localhost:3001
+   ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+4. **Execute a Aplicação em Modo de Desenvolvimento:**
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+5. **Para Build de Produção:**
+   ```bash
+   npm run build
+   ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+6. **Para Visualizar o Build de Produção:**
+   ```bash
+   npm run preview
+   ```
+
+7. **Acesse a Aplicação:**
+   - Desenvolvimento: Abra seu navegador e acesse `http://localhost:5173`
+   - Preview de produção: Abra seu navegador e acesse `http://localhost:4173`
+
+## Executando com Docker
+
+1. **Build da Imagem:**
+   ```bash
+   docker build -t odonto-guardiao-app .
+   ```
+
+2. **Execute o Container:**
+   ```bash
+   docker run -p 80:80 odonto-guardiao-app
+   ```
+
+3. **Acesse a Aplicação:**
+   - Abra seu navegador e acesse `http://localhost`
+
+## Scripts Disponíveis
+
+- `npm run dev` - Inicia o servidor de desenvolvimento
+- `npm run build` - Gera o build de produção
+- `npm run preview` - Visualiza o build de produção localmente
+- `npm run lint` - Executa o linter para verificar qualidade do código
+- `npm run generate-pwa-assets` - Gera assets para PWA
+
+## Informações Adicionais
+
+- Este projeto faz parte do meu TCC e representa um importante passo para a solução de gestão em serviços odontológicos.
+- A aplicação é uma Progressive Web App (PWA), podendo ser instalada em dispositivos móveis.
+- O projeto é uma colaboração entre a UFCG e a UEPB, unindo expertise acadêmica e tecnológica para um propósito social crucial.
+- Contribuições, sugestões e feedback são bem-vindos para aprimorar a aplicação.
+
+Aproveite para explorar o Odonto Guardião App!
