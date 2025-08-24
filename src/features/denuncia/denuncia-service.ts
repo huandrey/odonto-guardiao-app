@@ -189,6 +189,7 @@ export class DenunciaService {
     const formData = new FormData();
     formData.append('protocolo', protocol);
     formData.append('regiao', complaint.address?.councilRegion?.regiao || '');
+    formData.append('bairro', complaint.address?.neighborhood || '');
     formData.append('pdf', pdf, `denuncia_${protocol}.pdf`);
     
     try {
