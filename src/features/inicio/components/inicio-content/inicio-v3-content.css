@@ -118,7 +118,7 @@ main {
   transform: translateY(0);
 }
 
-.illustration img {
+.hero_img img {
   width: 100%;
   aspect-ratio: 3/2;
   border-radius: 32px;
@@ -131,7 +131,7 @@ main {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.illustration img:hover {
+.hero_img img:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
@@ -211,7 +211,7 @@ main {
     margin: 1rem 0rem 1.5rem 0rem;
   }
 
-  .illustration {
+  .hero_img {
     order: -1;
     /* display: none;
      */
@@ -239,7 +239,7 @@ main {
     padding: 0.75rem;
   }
 
-  .illustration img {
+  .hero_img img {
     height: 300px;
   }
 }

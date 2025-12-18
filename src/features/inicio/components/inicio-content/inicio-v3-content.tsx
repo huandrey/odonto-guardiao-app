@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { Header } from '../../../../shared/components/header/components'
 import { useNavigate } from 'react-router-dom';
 import { FAQ } from '../faq';
-import illustration from '../../../../assets/father.jpeg'
+import hero_img from '../../../../assets/hero.jpeg'
 
 import './inicio-v3-content.css'
 import { Footer } from '../../../../shared/components/footer';
@@ -52,8 +52,8 @@ export const InicioV3Content = () => {
           </div>
         </div>
 
-        <div className="illustration">
-          <img className="animated-kid-image" src={illustration} alt="pai e filha" width={550} height={450} />
+        <div className="hero_img">
+          <img className="animated-kid-image" src={hero_img} alt="pai e filha" width={550} height={450} />
         </div>
         
       </main>
