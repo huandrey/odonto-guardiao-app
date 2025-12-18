@@ -1,6 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import { appConfig } from './src/app-config'
+
+const { 
+  name, 
+  shortName: short_name, 
+  description, 
+  themeColor: theme_color 
+  } = appConfig
 
 export default defineConfig({
   plugins: [
@@ -12,10 +20,10 @@ export default defineConfig({
         enabled: true,
       },
       manifest: {
-        name: 'OdontoGuardião',
-        short_name: 'OdontoGuardião',
-        description: 'Plataforma de denúncia para profissionais da Odontologia identificarem e reportarem casos de violência e maus-tratos.',
-        theme_color: '#F4B63C',
+        name,
+        short_name,
+        description,
+        theme_color,
         display: 'standalone',
         start_url: '.',
         icons: [
