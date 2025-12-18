@@ -25,7 +25,7 @@ export const LoginContent: React.FC = () => {
     // Here you would typically send the data to your backend for authentication
     // For this example, we'll just simulate a successful login
     if (formData.email && formData.password) {
-      navigate('/home');
+      navigate('/');
     } else {
       setError('Por favor, preencha todos os campos.');
     }

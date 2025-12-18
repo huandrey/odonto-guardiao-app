@@ -10,7 +10,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Pages.InicioPage />} />
           <Route path="/sobre" element={<Pages.SobrePage />} />
-          <Route path="/home" element={<Pages.HomePage />} />
           <Route path="/register" element={<Pages.RegistroPage />} />
           <Route path="/login" element={<Pages.LoginPage />} />
           <Route path="/pontos-apoio" element={<Pages.PontosApoioPage />} />

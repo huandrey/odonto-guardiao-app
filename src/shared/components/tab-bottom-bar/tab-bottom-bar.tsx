@@ -26,10 +26,10 @@ export const TabBottomBar = ({ onShareClick }: { onShareClick: () => void }) => 
     },
     {
       id: 'home',
-      route: '/home',
+      route: '/',
       icon: <Home size={24} />,
       label: 'Início',
-      onClick: () => navigate('/home')
+      onClick: () => navigate('/')
     },
     {
       id: 'share',

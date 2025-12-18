@@ -12,7 +12,7 @@ export const InicioV2Content = () => {
   };
 
   const handleAnonymous = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   const handleIdentify = () => {

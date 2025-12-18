@@ -1,4 +1,3 @@
-export { HomePage } from './home/home-page';
 export { InicioPage } from './inicio/inicio-page';
 export { RegistroPage } from './registro/registro-page';
 export { LoginPage } from './login/login-page';
